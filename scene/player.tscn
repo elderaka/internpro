@@ -4,19 +4,20 @@
 [ext_resource type="Script" path="res://scene/player.gd" id="1_jf4pa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r3sv"]
-size = Vector2(22.25, 50.9375)
+size = Vector2(8, 15.4688)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_jf4pa")
 
 [node name="Mc" type="Sprite2D" parent="."]
-scale = Vector2(0.0291667, 0.0291667)
+position = Vector2(1.43051e-06, 7)
+scale = Vector2(0.00902779, 0.00902779)
 texture = ExtResource("1_i0ahp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.125, -1.46876)
+position = Vector2(0, 6.73438)
 shape = SubResource("RectangleShape2D_2r3sv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-4, -55)
+position = Vector2(1, -5)
 zoom = Vector2(3, 3)
