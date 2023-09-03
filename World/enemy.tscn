@@ -13,10 +13,9 @@ radius = 56.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxq50"]
 size = Vector2(16, 16)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(0, -8)
 collision_layer = 4
-collision_mask = 3
 script = ExtResource("1_8k0rg")
 movement_data = ExtResource("2_2741o")
 
@@ -35,12 +34,19 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_603yt")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 4
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
 shape = SubResource("RectangleShape2D_pxq50")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = -6.0
+text = "Test"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

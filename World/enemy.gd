@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var movement_data : EnemyMovementData
 
+@onready var label = $Label
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_chase = false
 var player = null
@@ -23,12 +25,14 @@ func _physics_process(delta):
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
-	
-
 
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
 
 func _on_hitbox_area_entered(area):
-	queue_free()
+	pass
+	#queue_free()
+
+func take_damage(damage):
+	label.text = str(damage)

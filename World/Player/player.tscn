@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://q5yetob6f52p"]
+[gd_scene load_steps=7 format=3 uid="uid://q5yetob6f52p"]
 
 [ext_resource type="Script" path="res://World/Player/player.gd" id="1_aa5cq"]
 [ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_jalrq"]
 [ext_resource type="Resource" uid="uid://daqddfix00vyf" path="res://World/DefaultPlayerMovement.tres" id="2_davsx"]
 [ext_resource type="PackedScene" uid="uid://tq84lvm16ah1" path="res://World/Player/projectile.tscn" id="3_8c6n1"]
+[ext_resource type="Resource" uid="uid://b1h873cax03uu" path="res://World/DefaultPlayerStats.tres" id="3_v1hnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekmf4"]
 size = Vector2(18, 18)
@@ -15,6 +16,7 @@ floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_aa5cq")
 movement_data = ExtResource("2_davsx")
+stats = ExtResource("3_v1hnw")
 Bullet = ExtResource("3_8c6n1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

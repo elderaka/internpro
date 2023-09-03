@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var movement_data : PlayerMovementData
+@export var stats : Player_Statistic
 @export var Bullet : PackedScene
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -89,5 +90,14 @@ func shoot():
 	remove_child(b)
 	owner.add_child(b)
 	b.speed = 300
+	b.damage = critical()
 	b.transform = marker_2d.transform
 	b.global_position = muzzle.global_position
+
+func critical():
+	randomize()
+	var percent = randf()
+	var newDamage = stats.damage
+	if percent <= stats.critChance:
+		newDamage += (newDamage * stats.critDamage)
+	return newDamage
