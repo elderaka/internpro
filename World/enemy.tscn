@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://coq5irywuydad"]
+
+[ext_resource type="Script" path="res://World/enemy.gd" id="1_8k0rg"]
+[ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_na5f3"]
+[ext_resource type="Resource" uid="uid://dn5lp3g6jhokp" path="res://World/Enemy1Movement.tres" id="2_2741o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7iwr"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_603yt"]
+radius = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxq50"]
+size = Vector2(16, 16)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(0, -8)
+collision_layer = 4
+script = ExtResource("1_8k0rg")
+movement_data = ExtResource("2_2741o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.792157, 0.117647, 0, 1)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_na5f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j7iwr")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_603yt")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemy"]]
+shape = SubResource("RectangleShape2D_pxq50")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 17.0
+offset_bottom = -6.0
+text = "Test"
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

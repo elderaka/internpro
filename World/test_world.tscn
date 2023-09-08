@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs1vdebgntdoo"]
+[gd_scene load_steps=4 format=3 uid="uid://bs1vdebgntdoo"]
 
 [ext_resource type="Script" path="res://World/test_world.gd" id="1_27wdy"]
-[ext_resource type="PackedScene" uid="uid://ucv55njvpdnu" path="res://scene/player.tscn" id="2_gpeht"]
+[ext_resource type="PackedScene" uid="uid://q5yetob6f52p" path="res://World/Player/player.tscn" id="2_411yv"]
+[ext_resource type="PackedScene" uid="uid://coq5irywuydad" path="res://World/enemy.tscn" id="3_ihor0"]
 
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_27wdy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, 24, 0, 24, 96, 56, 96, 72, 112, 96, 120, 120, 120, 144, 104, 160, 104, 160, 128, 200, 128, 200, 104, 216, 104, 224, 128, 248, 128, 248, 112, 264, 112, 280, 112, 280, 96, 272, 96, 272, 88, 288, 88, 288, 48, 312, 48, 312, 0, 320, 0, 320, 184, 0, 184)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_gpeht")]
-position = Vector2(54, 64)
+[node name="Player" parent="." instance=ExtResource("2_411yv")]
+position = Vector2(56, 64)
+
+[node name="Enemy" parent="." instance=ExtResource("3_ihor0")]
+position = Vector2(152, 88)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_ihor0")]
+position = Vector2(208, 88)
