@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hold = $Hold
 @onready var muzzle = $Marker2D/Muzzle
 @onready var marker_2d = $Marker2D
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var aiming = false
 
@@ -90,14 +91,31 @@ func shoot():
 	remove_child(b)
 	owner.add_child(b)
 	b.speed = 300
-	b.damage = critical()
+	var crit = critical()
+	b.damage = crit.damage
+	b.isCrit = crit.isCrit
 	b.transform = marker_2d.transform
 	b.global_position = muzzle.global_position
 
 func critical():
 	randomize()
 	var percent = randf()
-	var newDamage = stats.damage
+	print(percent,stats.critChance)
+	var multiplier
+	var isCrit = false
+	#Algoritma untuk menentukan damage dari proyektil adalah sebagai berikut:
+	#(stats.damage * weapon_multiplier) * critDamage
+	match stats.weapon:
+		"dot": multiplier = 1
+		"lance": multiplier = 1.2
+		"bounce": multiplier = 0.95
+		"spreadshot": multiplier = 1.1
+		"datathrower": multiplier = 0.35
+		"laser": multiplier = 0.3
+	var newDamage = stats.damage * multiplier
 	if percent <= stats.critChance:
+		isCrit = true
 		newDamage += (newDamage * stats.critDamage)
-	return newDamage
+	#Return 2 values sekaligus, yaitu damage dan apakah damage tersebut critical atau tidak
+	
+	return {"damage": newDamage, "isCrit": isCrit}

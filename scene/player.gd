@@ -8,6 +8,7 @@ var current_jump = 0
 var max_jump = 2
 var is_moving_left = false
 
+
 func _physics_process(delta):
 	if !is_on_floor():
 		if velocity.y < 1000:

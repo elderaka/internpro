@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @export var movement_data : EnemyMovementData
-
+@export var stats : Enemy_Statistic
 @onready var label = $Label
+@onready var critNotif = $Label2
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_chase = false
@@ -34,5 +35,12 @@ func _on_hitbox_area_entered(area):
 	pass
 	#queue_free()
 
-func take_damage(damage):
-	label.text = str(damage)
+func take_damage(damage, isCrit):
+	#stats.health -= damage
+	
+	if isCrit:
+		critNotif.text = str("Critical hit!")
+		label.text = str(damage)+ "!"
+	else:
+		label.text = str(damage)
+		critNotif.text = str("")

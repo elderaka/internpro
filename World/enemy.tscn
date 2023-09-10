@@ -48,6 +48,12 @@ offset_right = 17.0
 offset_bottom = -6.0
 text = "Test"
 
+[node name="Label2" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -50.0
+offset_right = 17.0
+offset_bottom = -24.0
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

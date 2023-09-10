@@ -15,6 +15,10 @@ run/main_scene="res://World/test_world.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalVariable="*res://World/Player/globalVariable.gd"
+
 [display]
 
 window/size/viewport_width=320
