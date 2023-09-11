@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs1vdebgntdoo"]
+[gd_scene load_steps=5 format=3 uid="uid://bq0txcigv6iff"]
 
 [ext_resource type="Script" path="res://World/test_world.gd" id="1_27wdy"]
-[ext_resource type="PackedScene" uid="uid://q5yetob6f52p" path="res://World/Player/player.tscn" id="2_411yv"]
-[ext_resource type="PackedScene" uid="uid://coq5irywuydad" path="res://World/enemy.tscn" id="3_ihor0"]
+[ext_resource type="PackedScene" uid="uid://dcbo2t0hstdgw" path="res://World/Player/player.tscn" id="2_411yv"]
+[ext_resource type="PackedScene" uid="uid://c3aungb3a2m5v" path="res://World/Enemy/enemy.tscn" id="3_ihor0"]
+[ext_resource type="Resource" uid="uid://dd4td520cdk1s" path="res://World/Enemy/devmode/devenemstats.tres" id="4_gyxvw"]
 
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_27wdy")
@@ -11,15 +12,17 @@ script = ExtResource("1_27wdy")
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 24, 0, 24, 96, 56, 96, 72, 112, 96, 120, 120, 120, 144, 104, 160, 104, 160, 128, 200, 128, 200, 104, 216, 104, 224, 128, 248, 128, 248, 112, 264, 112, 280, 112, 280, 96, 272, 96, 272, 88, 288, 88, 288, 48, 312, 48, 312, 0, 320, 0, 320, 184, 0, 184)
+polygon = PackedVector2Array(-156, 25, -36, -60, -22, -84, 236, -199, 643, -168, 689, -70, 726, 63, 629, 67, 428, -98, 186, -152, 55, -101, -66, 9, -36, 68, 24, 96, 56, 96, 72, 112, 96, 120, 120, 120, 144, 104, 160, 104, 160, 128, 200, 128, 200, 104, 216, 104, 224, 128, 248, 128, 248, 112, 264, 112, 280, 112, 280, 96, 272, 96, 272, 88, 288, 88, 321, 138, 367, 120, 402, 87, 470, 64, 532, 45, 629, 68, 610, 132, 395, 141, 320, 184, 0, 184)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_411yv")]
 position = Vector2(56, 64)
 
+[node name="Enemy2" parent="." instance=ExtResource("3_ihor0")]
+position = Vector2(211, 85)
+stats = ExtResource("4_gyxvw")
+
 [node name="Enemy" parent="." instance=ExtResource("3_ihor0")]
 position = Vector2(152, 88)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_ihor0")]
-position = Vector2(208, 88)
+stats = ExtResource("4_gyxvw")

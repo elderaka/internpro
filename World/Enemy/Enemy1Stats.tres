@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy_Statistic" load_steps=2 format=3 uid="uid://rmaqbgh2xlly"]
+
+[ext_resource type="Script" path="res://World/Enemy/EnemyStats.gd" id="1_q8rup"]
+
+[resource]
+script = ExtResource("1_q8rup")
+type = "bit"
+health = 1000
+damage = 50
+minbytes = 50
+maxbytes = 100

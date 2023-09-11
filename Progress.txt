@@ -1,0 +1,10 @@
+Progress mulai dari 8 Septemeber 2023 (Mulai prototyping)
+
+9 September 2023:
+	Cek ulang semua kodenya, rapiin kode, sama dokumentasi sedikit biar nanti jelas
+10 September 2023:
+	Rapiin atribut, bikin placeholder stats buat player dan juga enemies.
+	Mastiin semua mekanisme Player sama Enemies udah 100% work
+	TODO:
+		Bikin generative levelnya buat placeholder nanti
+

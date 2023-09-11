@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy_Statistic" load_steps=2 format=3 uid="uid://dd4td520cdk1s"]
+
+[ext_resource type="Script" path="res://World/Enemy/EnemyStats.gd" id="1_hdvak"]
+
+[resource]
+script = ExtResource("1_hdvak")
+type = "devmode"
+health = 500
+damage = 10
+minbytes = 50
+maxbytes = 100

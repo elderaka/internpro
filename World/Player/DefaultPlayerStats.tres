@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Player_Statistic" load_steps=2 format=3 uid="uid://dk7c2xl2gvw73"]
+
+[ext_resource type="Script" path="res://World/Player/PlayerStats.gd" id="1_1wamx"]
+
+[resource]
+script = ExtResource("1_1wamx")
+health = 100
+maxhealth = 100
+damage = 100
+fireRate = 1.0
+critChance = 0.2
+critDamage = 1.5
+pierce = 0
+knockback = 1.0
+lifeSteal = 0.0
+weapon = "dot"
+bytes = 0

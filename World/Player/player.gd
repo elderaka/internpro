@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-
 @export var movement_data : PlayerMovementData
 @export var stats : Player_Statistic
 @export var Bullet : PackedScene
+@export var weapon_used : Weapon_Statistic
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,10 +13,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var muzzle = $Marker2D/Muzzle
 @onready var marker_2d = $Marker2D
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var healthbar = $HpBar
+@onready var bytes = $bytes
+@onready var healthdisplay = $hp
+@onready var weapon = $weapon_type
 
 var aiming = false
-
-
+var weapon_slot = ["dot","lance"]
+var weapon_pos = 0
+func _ready():
+	weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
+	
 func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
@@ -25,6 +32,9 @@ func _physics_process(delta):
 	apply_friction(direction, delta)
 	apply_air_resistance(direction, delta)
 	update_sprite(direction)
+	update_health()
+	update_bytes()
+	update_weapon()
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
@@ -42,11 +52,15 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("Shoot"):
 		shoot()
 		aiming = false
+	
+	if stats.health <= 0:
+		restart_application()
 
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * movement_data.gravity_scale * delta
 
+	
 func handle_jump():
 	if is_on_floor() or timer.time_left:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -76,14 +90,41 @@ func update_sprite(direction):
 	if not is_on_floor():
 		sprite_2d.self_modulate = Color.DARK_GREEN
 
+func update_health():
+	healthbar.max_value = stats.maxhealth
+	healthbar.value = stats.health
+	healthdisplay.text = "Health: " + str(stats.health) + "/" + str(stats.maxhealth)
+	
+func update_bytes():
+	bytes.text = "Bytes: " + str(stats.bytes)
+	
+func update_weapon():
+	weapon.text = weapon_slot[weapon_pos]
+	#NOTE: cuman solusi sementara. Jangan lupa ganti klo dpet ide yang bagusan dikit
+	#Jadi ini buat load resource weapon atributnya
+	match weapon_slot[weapon_pos]:
+		"dot":
+			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
+		"lance":
+			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+	if Input.is_action_just_pressed("change_weapon"):
+		if weapon_pos == 1:
+			weapon_pos -= 1
+		else:
+			weapon_pos += 1
+		
 func spawnBullet():
 	var b = Bullet.instantiate()
 	add_child(b)
+	b.animation = weapon_used.sprite
+	b.weapon_stats = weapon_used
 	b.transform = marker_2d.transform
 	b.speed = 0
 
 func aim():
 	var b = $Projectile
+	b.weapon_stats = weapon_used
+	b.animation = weapon_used.sprite
 	b.transform = marker_2d.transform
 
 func shoot():
@@ -91,31 +132,19 @@ func shoot():
 	remove_child(b)
 	owner.add_child(b)
 	b.speed = 300
-	var crit = critical()
-	b.damage = crit.damage
-	b.isCrit = crit.isCrit
+	b.damage = stats.damage
+	b.critChance = stats.critChance
+	b.critDamage = stats.critDamage
+	b.animation = weapon_used.sprite
+	b.weapon_stats = weapon_used
 	b.transform = marker_2d.transform
 	b.global_position = muzzle.global_position
 
-func critical():
-	randomize()
-	var percent = randf()
-	print(percent,stats.critChance)
-	var multiplier
-	var isCrit = false
-	#Algoritma untuk menentukan damage dari proyektil adalah sebagai berikut:
-	#(stats.damage * weapon_multiplier) * critDamage
-	match stats.weapon:
-		"dot": multiplier = 1
-		"lance": multiplier = 1.2
-		"bounce": multiplier = 0.95
-		"spreadshot": multiplier = 1.1
-		"datathrower": multiplier = 0.35
-		"laser": multiplier = 0.3
-	var newDamage = stats.damage * multiplier
-	if percent <= stats.critChance:
-		isCrit = true
-		newDamage += (newDamage * stats.critDamage)
-	#Return 2 values sekaligus, yaitu damage dan apakah damage tersebut critical atau tidak
+func take_damage(damage):
+	print(stats.health)
+	stats.health -= damage
 	
-	return {"damage": newDamage, "isCrit": isCrit}
+func restart_application():
+	var executable_path = OS.get_executable_path()
+	OS.execute(executable_path, [])  # Pass any command line arguments if needed
+	get_tree().quit()  # Quit the current instance of the application
