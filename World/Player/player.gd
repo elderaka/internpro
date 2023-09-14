@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var stats : Player_Statistic
 @export var Bullet : PackedScene
 @export var weapon_used : Weapon_Statistic
-@export var inventory : Player_Inventory
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,7 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var weapon = $weapon_type
 
 var aiming = false
-var weapon_slot = ["dot","lance"]
+var weapon_slot = PlayerInventory.weapon
 var weapon_pos = 0
 func _ready():
 	weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
@@ -54,6 +53,10 @@ func _physics_process(delta):
 		shoot()
 		aiming = false
 	
+	if Input.is_action_just_pressed("add_item") and PlayerInventory.inventory.size() < PlayerInventory.max_slot:
+		add_random_item()
+	elif Input.is_action_just_pressed("add_item"):
+		print("Full")
 	if stats.health <= 0:
 		restart_application()
 
@@ -100,19 +103,20 @@ func update_bytes():
 	bytes.text = "Bytes: " + str(stats.bytes)
 	
 func update_weapon():
-	weapon.text = weapon_slot[weapon_pos]
-	#NOTE: cuman solusi sementara. Jangan lupa ganti klo dpet ide yang bagusan dikit
-	#Jadi ini buat load resource weapon atributnya
-	match weapon_slot[weapon_pos]:
-		"dot":
-			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
-		"lance":
-			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
-	if Input.is_action_just_pressed("change_weapon"):
+	if Input.is_action_just_pressed("change_weapon") and PlayerInventory.weapon[1] != null:
 		if weapon_pos == 1:
 			weapon_pos -= 1
 		else:
 			weapon_pos += 1
+	weapon.text = PlayerInventory.weapon[weapon_pos]
+	#NOTE: cuman solusi sementara. Jangan lupa ganti klo dpet ide yang bagusan dikit
+	#Jadi ini buat load resource weapon atributnya
+	match weapon.text:
+		"dot":
+			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
+		"lance":
+			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+	
 		
 func spawnBullet():
 	var b = Bullet.instantiate()
@@ -142,10 +146,21 @@ func shoot():
 	b.global_position = muzzle.global_position
 
 func take_damage(damage):
-	print(stats.health)
 	stats.health -= damage
 	
 func restart_application():
 	var executable_path = OS.get_executable_path()
 	OS.execute(executable_path, [])  # Pass any command line arguments if needed
 	get_tree().quit()  # Quit the current instance of the application
+	
+func add_random_item():
+	var item_id = randi_range(0,3)
+	match item_id:
+		0:
+			PlayerInventory.add_item("Dot Boost")
+		1:
+			PlayerInventory.add_item("Ram Upgrade")
+		2:
+			PlayerInventory.add_item("Crit Chance UP")
+		3:
+			PlayerInventory.add_item("Processor Boost")

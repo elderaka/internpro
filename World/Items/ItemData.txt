@@ -1,0 +1,30 @@
+{
+	"Dot Boost":{
+		"ItemCategory": "Item",
+		"Description": "Increase Damage."
+	},
+	"RAM Upgrade":{
+		"ItemCategory": "Item",
+		"Description": "Increase RAM."
+	},
+	"Crit Chance UP":{
+		"ItemCategory": "Item",
+		"Description": "Increase Crit Chance."
+	},
+	"Crit Damage UP":{
+		"ItemCategory": "Item",
+		"Description": "Increase Crit Damage."
+	},
+	"Processor Boost":{
+		"ItemCategory": "Item",
+		"Description": "Increase Knockback."
+	},
+	"Dot":{
+		"ItemCategory": "Item",
+		"Description": "Normal Weapon."
+	},
+	"Lance":{
+		"ItemCategory": "Item",
+		"Description": "Knockback weapon."
+	}
+}

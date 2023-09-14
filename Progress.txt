@@ -8,3 +8,5 @@ Progress mulai dari 8 Septemeber 2023 (Mulai prototyping)
 	TODO:
 		Bikin generative levelnya buat placeholder nanti
 
+14 September 2023:
+	Merge Item_data sama Weapon_data jadiin satu aja (This will be bad idea but let's see)
