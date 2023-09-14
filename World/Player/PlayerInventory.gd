@@ -1,4 +1,3 @@
-class_name Player_Statistic
 extends Resource
 
 @export var health = 100
@@ -12,4 +11,3 @@ extends Resource
 @export var lifeSteal = 0.0
 @export var weapon = "dot"
 @export var bytes = 0
-@export var 
