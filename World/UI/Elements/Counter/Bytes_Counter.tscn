@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsx8cv42obi4f"]
+
+[ext_resource type="PackedScene" uid="uid://dmxww2bu2igej" path="res://World/UI/Elements/Counter/counter.tscn" id="1_emev3"]
+[ext_resource type="Script" path="res://World/UI/Elements/Counter/Bytes_Counter.gd" id="2_5rl8r"]
+
+[node name="Bytes" instance=ExtResource("1_emev3")]
+script = ExtResource("2_5rl8r")

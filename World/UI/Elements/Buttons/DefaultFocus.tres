@@ -1,0 +1,22 @@
+[gd_resource type="StyleBoxTexture" load_steps=4 format=3 uid="uid://bm7jy085t1i6j"]
+
+[ext_resource type="Texture2D" uid="uid://d4n0wue7m7hqb" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Select_02a1.png" id="1_uh8ej"]
+[ext_resource type="Texture2D" uid="uid://ck7tw8ngo83vx" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Select_02a2.png" id="2_sbu2t"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_5cy02"]
+frames = 2
+frame_0/texture = ExtResource("1_uh8ej")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_sbu2t")
+frame_1/duration = 0.5
+
+[resource]
+texture = SubResource("AnimatedTexture_5cy02")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+expand_margin_left = 3.0
+expand_margin_top = 5.0
+expand_margin_right = 3.0
+expand_margin_bottom = 5.0

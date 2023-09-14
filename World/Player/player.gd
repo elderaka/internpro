@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+signal health_change(health, max_health)
+signal byte_change(value)
+signal weapon_change(weapon)
+
 @export var movement_data : PlayerMovementData
 @export var stats : Player_Statistic
 @export var Bullet : PackedScene
@@ -13,11 +17,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hold = $Hold
 @onready var muzzle = $Marker2D/Muzzle
 @onready var marker_2d = $Marker2D
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
-@onready var healthbar = $HpBar
-@onready var bytes = $bytes
-@onready var healthdisplay = $hp
-@onready var weapon = $weapon_type
 
 var aiming = false
 var weapon_slot = ["dot","lance"]
@@ -51,8 +50,9 @@ func _physics_process(delta):
 		else:
 			aim()
 	elif Input.is_action_just_released("Shoot"):
-		shoot()
-		aiming = false
+		if aiming:
+			shoot()
+			aiming = false
 	
 	if stats.health <= 0:
 		restart_application()
@@ -92,15 +92,13 @@ func update_sprite(direction):
 		sprite_2d.self_modulate = Color.DARK_GREEN
 
 func update_health():
-	healthbar.max_value = stats.maxhealth
-	healthbar.value = stats.health
-	healthdisplay.text = "Health: " + str(stats.health) + "/" + str(stats.maxhealth)
+	emit_signal("health_change", stats.health, stats.maxhealth)
 	
 func update_bytes():
-	bytes.text = "Bytes: " + str(stats.bytes)
+	emit_signal("byte_change", stats.bytes)
 	
 func update_weapon():
-	weapon.text = weapon_slot[weapon_pos]
+	emit_signal("weapon_change", weapon_slot[weapon_pos])
 	#NOTE: cuman solusi sementara. Jangan lupa ganti klo dpet ide yang bagusan dikit
 	#Jadi ini buat load resource weapon atributnya
 	match weapon_slot[weapon_pos]:
@@ -144,6 +142,8 @@ func shoot():
 func take_damage(damage):
 	print(stats.health)
 	stats.health -= damage
+	emit_signal("health_change", stats.health, stats.maxhealth)
+	
 	
 func restart_application():
 	var executable_path = OS.get_executable_path()

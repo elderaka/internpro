@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlm8hrvy1kd7q"]
+
+[ext_resource type="Script" path="res://World/UI/Elements/in_game_ui.gd" id="1_flev1"]
+[ext_resource type="PackedScene" uid="uid://cdwh0kbw2dqwa" path="res://World/UI/Elements/Bar/health_bar.tscn" id="1_ncs3g"]
+[ext_resource type="PackedScene" uid="uid://dvgbw18gmlbj8" path="res://World/UI/Elements/Bar/ammo_bar.tscn" id="2_iprdc"]
+[ext_resource type="PackedScene" uid="uid://dsx8cv42obi4f" path="res://World/UI/Elements/Counter/Bytes_Counter.tscn" id="3_640r6"]
+[ext_resource type="PackedScene" uid="uid://2jpiiykt37re" path="res://World/UI/Elements/Item/weapon_change.tscn" id="4_5qpsg"]
+
+[node name="InGameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_flev1")
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" parent="Bars" instance=ExtResource("1_ncs3g")]
+layout_mode = 2
+
+[node name="AmmoBar" parent="Bars" instance=ExtResource("2_iprdc")]
+layout_mode = 2
+
+[node name="Bytes" parent="." instance=ExtResource("3_640r6")]
+custom_minimum_size = Vector2(60, 16)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="WeaponChange" parent="." instance=ExtResource("4_5qpsg")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[connection signal="byte_changed" from="." to="Bytes" method="_on_in_game_ui_byte_changed"]
+[connection signal="health_changed" from="." to="Bars/HealthBar" method="_on_in_game_ui_health_changed"]
+[connection signal="weapon_changed" from="." to="WeaponChange" method="_on_in_game_ui_weapon_changed"]
