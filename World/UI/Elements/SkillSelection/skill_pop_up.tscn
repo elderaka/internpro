@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cglprcxjtu36d"]
+
+[ext_resource type="StyleBox" uid="uid://bm7jy085t1i6j" path="res://World/UI/Elements/Buttons/DefaultFocus.tres" id="1_87ci1"]
+[ext_resource type="Texture2D" uid="uid://be47vioh7vimm" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_02_Standard.png" id="2_7lb4q"]
+[ext_resource type="Theme" uid="uid://204rcijbtpuh" path="res://World/UI/Elements/Buttons/DefaultTheme.tres" id="3_nbyty"]
+[ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="4_mb0qk"]
+[ext_resource type="Texture2D" uid="uid://cma3piwulcnw" path="res://sprite/bullet.png" id="5_x0fut"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5o7r5"]
+texture = ExtResource("2_7lb4q")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_tonfj"]
+Button/styles/focus = ExtResource("1_87ci1")
+Button/styles/hover = SubResource("StyleBoxTexture_5o7r5")
+Button/styles/normal = SubResource("StyleBoxTexture_5o7r5")
+Button/styles/pressed = SubResource("StyleBoxTexture_5o7r5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgoab"]
+atlas = ExtResource("5_x0fut")
+region = Rect2(3, 3, 10, 10)
+
+[node name="SkillPopUp" type="Button"]
+offset_right = 96.0
+offset_bottom = 128.0
+mouse_filter = 1
+theme = SubResource("Theme_tonfj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_nbyty")
+theme_override_fonts/font = ExtResource("4_mb0qk")
+theme_override_font_sizes/font_size = 20
+text = "Skill Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_cgoab")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 7
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo tellus vel velit semper, ac dictum lorem molestie. Aenean nec massa in nisi luctus ultricies ac vitae nibh."
+fit_content = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_mb0qk")
+text = "12 40 30 20"

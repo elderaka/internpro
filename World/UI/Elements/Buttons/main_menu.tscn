@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://df87ugbp0x2ew"]
+
+[ext_resource type="PackedScene" uid="uid://c60ixkabmwwn1" path="res://World/UI/Elements/Buttons/IconButton.tscn" id="1_5lg4b"]
+[ext_resource type="Script" path="res://World/UI/Elements/Buttons/main_menu.gd" id="1_ac2gd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ac2gd")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Tittle" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Tittle"
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../HBoxContainer/Settings")
+focus_next = NodePath("../../../HBoxContainer/Settings")
+text = "Play"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -26.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Settings" parent="HBoxContainer" instance=ExtResource("1_5lg4b")]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "Exit"
+clip_text = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]

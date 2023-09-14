@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://br7rke1etgi8l"]
+
+[ext_resource type="Theme" uid="uid://204rcijbtpuh" path="res://World/UI/Elements/Buttons/DefaultTheme.tres" id="1_abn58"]
+
+[node name="Button" type="Button"]
+offset_right = 48.0
+offset_bottom = 21.0
+theme = ExtResource("1_abn58")
+text = "Play"

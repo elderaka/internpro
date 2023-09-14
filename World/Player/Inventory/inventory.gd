@@ -1,4 +1,5 @@
 extends Node2D
+class_name  Player_Inventory
 
 const SlotClass = preload("res://World/Player/Inventory/item_slot.gd")
 @onready var inventory_slots = $items

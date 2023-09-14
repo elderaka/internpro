@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://rlvb22di7xjq"]
+
+[ext_resource type="Texture2D" uid="uid://cpgkpgju2ektr" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Button_Small_Lock_01a2.png" id="1_oli5l"]
+
+[resource]
+texture = ExtResource("1_oli5l")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.721569, 0.721569, 0.721569, 1)
