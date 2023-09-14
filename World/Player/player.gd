@@ -8,6 +8,7 @@ signal weapon_change(weapon)
 @export var stats : Player_Statistic
 @export var Bullet : PackedScene
 @export var weapon_used : Weapon_Statistic
+@export var inventory : Player_Inventory
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
