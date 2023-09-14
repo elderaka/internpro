@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlc0t2ireivfo"]
+
+[ext_resource type="Script" path="res://World/UI/Elements/SkillSelection/skill_selection.gd" id="1_u3q7q"]
+[ext_resource type="PackedScene" uid="uid://br7rke1etgi8l" path="res://World/UI/Elements/Buttons/button.tscn" id="2_dnos3"]
+[ext_resource type="PackedScene" uid="uid://tn2d75slppeq" path="res://World/UI/Elements/SkillSelection/skill.tscn" id="3_hwv5t"]
+
+[node name="Skill Selection" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u3q7q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(270, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 10.0
+theme_override_constants/separation = 10
+
+[node name="Skill" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Skill2" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Skill3" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Skill4" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Skill5" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Skill6" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" parent="VBoxContainer" instance=ExtResource("2_dnos3")]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

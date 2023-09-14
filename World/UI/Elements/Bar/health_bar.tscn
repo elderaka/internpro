@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdwh0kbw2dqwa"]
+
+[ext_resource type="PackedScene" uid="uid://bnl23lvt0fynb" path="res://World/UI/Elements/Bar/bar.tscn" id="1_sxsdd"]
+[ext_resource type="Script" path="res://World/UI/Elements/Bar/health_bar.gd" id="2_82wpx"]
+
+[node name="HealthBar" instance=ExtResource("1_sxsdd")]
+script = ExtResource("2_82wpx")

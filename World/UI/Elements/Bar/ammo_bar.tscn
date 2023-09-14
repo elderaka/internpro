@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvgbw18gmlbj8"]
+
+[ext_resource type="PackedScene" uid="uid://bnl23lvt0fynb" path="res://World/UI/Elements/Bar/bar.tscn" id="1_fu821"]
+[ext_resource type="Texture2D" uid="uid://bigcqmcxnr8cj" path="res://World/UI/Elements/Bar/AmmoUnder.png" id="2_6hqyq"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="2_knc6e"]
+[ext_resource type="Texture2D" uid="uid://bb5ksfxl480oo" path="res://World/UI/Elements/Bar/AmmoBar.png" id="3_sjm1g"]
+[ext_resource type="Texture2D" uid="uid://bfet8015d1xjm" path="res://World/UI/Elements/Bar/Ammo.png" id="4_gksfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_welyh"]
+atlas = ExtResource("2_knc6e")
+region = Rect2(7, 344, 17, 15)
+
+[node name="AmmoBar" instance=ExtResource("1_fu821")]
+offset_right = 61.0
+offset_bottom = 13.0
+
+[node name="TextureRect" parent="." index="0"]
+texture = SubResource("AtlasTexture_welyh")
+
+[node name="TextureProgressBar" parent="." index="1"]
+custom_minimum_size = Vector2(40, 10)
+stretch_margin_left = 20
+stretch_margin_right = 20
+texture_under = ExtResource("2_6hqyq")
+texture_over = ExtResource("3_sjm1g")
+texture_progress = ExtResource("4_gksfk")

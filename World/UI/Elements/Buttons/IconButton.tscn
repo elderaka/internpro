@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c60ixkabmwwn1"]
+
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="1_2wpet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i80fe"]
+atlas = ExtResource("1_2wpet")
+region = Rect2(295, 7, 18, 18)
+
+[node name="Settings" type="Button"]
+custom_minimum_size = Vector2(18, 18)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+icon = SubResource("AtlasTexture_i80fe")
+expand_icon = true
