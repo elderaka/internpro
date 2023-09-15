@@ -101,19 +101,13 @@ func update_bytes():
 	emit_signal("byte_change", stats.bytes)
 	
 func update_weapon():
+	emit_signal("weapon_change", PlayerInventory.weapon[weapon_pos])
 	if Input.is_action_just_pressed("change_weapon") and PlayerInventory.weapon[1] != null:
 		if weapon_pos == 1:
 			weapon_pos -= 1
 		else:
 			weapon_pos += 1
-	weapon.text = PlayerInventory.weapon[weapon_pos]
-	#NOTE: cuman solusi sementara. Jangan lupa ganti klo dpet ide yang bagusan dikit
-	#Jadi ini buat load resource weapon atributnya
-	match weapon.text:
-		"dot":
-			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
-		"lance":
-			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+	
 	
 		
 func spawnBullet():

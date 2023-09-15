@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcbo2t0hstdgw"]
+[gd_scene load_steps=10 format=3 uid="uid://dcbo2t0hstdgw"]
 
 [ext_resource type="Script" path="res://World/Player/player.gd" id="1_aa5cq"]
 [ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_jalrq"]
 [ext_resource type="Resource" path="res://World/Player/DefaultPlayerMovement.tres" id="2_davsx"]
 [ext_resource type="Resource" uid="uid://dk7c2xl2gvw73" path="res://World/Player/DefaultPlayerStats.tres" id="3_7ukfu"]
 [ext_resource type="PackedScene" uid="uid://c80ukt624641l" path="res://World/Weapon/projectile.tscn" id="4_cfmpf"]
-[ext_resource type="Script" path="res://World/Player/inventory_interface.gd" id="6_fvgbb"]
+[ext_resource type="Script" path="res://World/Player/Inventory/Inventory_UI.gd" id="6_673pg"]
 [ext_resource type="PackedScene" uid="uid://c4lgtxaxdh8dr" path="res://World/Player/Inventory/inventory.tscn" id="7_4cn2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjlpy"]
@@ -52,5 +52,11 @@ position = Vector2(8, 0)
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("6_673pg")
+
+[node name="inventory" parent="CanvasLayer" instance=ExtResource("7_4cn2a")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
