@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ba0mnjxe2p7tf"]
+
+[ext_resource type="StyleBox" uid="uid://bm7jy085t1i6j" path="res://World/UI/Elements/Buttons/DefaultFocus.tres" id="1_x6rae"]
+[ext_resource type="Texture2D" uid="uid://bihabdcjvjqo0" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_01_Standard.png" id="2_xihqa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18lmo"]
+texture = ExtResource("2_xihqa")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vj7xk"]
+texture = ExtResource("2_xihqa")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfcis"]
+texture = ExtResource("2_xihqa")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+
+[resource]
+Button/styles/focus = ExtResource("1_x6rae")
+Button/styles/hover = SubResource("StyleBoxTexture_18lmo")
+Button/styles/normal = SubResource("StyleBoxTexture_vj7xk")
+Button/styles/pressed = SubResource("StyleBoxTexture_bfcis")

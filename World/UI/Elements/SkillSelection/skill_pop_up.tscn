@@ -1,23 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cglprcxjtu36d"]
+[gd_scene load_steps=6 format=3 uid="uid://cglprcxjtu36d"]
 
-[ext_resource type="StyleBox" uid="uid://bm7jy085t1i6j" path="res://World/UI/Elements/Buttons/DefaultFocus.tres" id="1_87ci1"]
-[ext_resource type="Texture2D" uid="uid://be47vioh7vimm" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_02_Standard.png" id="2_7lb4q"]
+[ext_resource type="Theme" uid="uid://d0g1bgxms8ylj" path="res://World/UI/Elements/SkillSelection/pop_up.tres" id="1_anrh7"]
 [ext_resource type="Theme" uid="uid://204rcijbtpuh" path="res://World/UI/Elements/Buttons/DefaultTheme.tres" id="3_nbyty"]
 [ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="4_mb0qk"]
 [ext_resource type="Texture2D" uid="uid://cma3piwulcnw" path="res://sprite/bullet.png" id="5_x0fut"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5o7r5"]
-texture = ExtResource("2_7lb4q")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-
-[sub_resource type="Theme" id="Theme_tonfj"]
-Button/styles/focus = ExtResource("1_87ci1")
-Button/styles/hover = SubResource("StyleBoxTexture_5o7r5")
-Button/styles/normal = SubResource("StyleBoxTexture_5o7r5")
-Button/styles/pressed = SubResource("StyleBoxTexture_5o7r5")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgoab"]
 atlas = ExtResource("5_x0fut")
@@ -27,7 +13,7 @@ region = Rect2(3, 3, 10, 10)
 offset_right = 96.0
 offset_bottom = 128.0
 mouse_filter = 1
-theme = SubResource("Theme_tonfj")
+theme = ExtResource("1_anrh7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

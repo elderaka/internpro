@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnkff011gft5r"]
+
+[ext_resource type="PackedScene" uid="uid://dsx8cv42obi4f" path="res://World/UI/Elements/Counter/Bytes_Counter.tscn" id="1_t0gwl"]
+[ext_resource type="Texture2D" uid="uid://be47vioh7vimm" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_02_Standard.png" id="2_nekmt"]
+[ext_resource type="PackedScene" uid="uid://b8hewfamunbfe" path="res://World/UI/Elements/Shop/shop_slot.tscn" id="3_qemew"]
+[ext_resource type="PackedScene" uid="uid://ddvoao3slwghp" path="res://World/UI/Elements/Shop/special_shop_slot.tscn" id="4_ug6jp"]
+[ext_resource type="PackedScene" uid="uid://bcukbghokc3o4" path="res://World/UI/Elements/Shop/heal_shop.tscn" id="5_bdg4x"]
+[ext_resource type="PackedScene" uid="uid://dlrhe28j4ukp3" path="res://World/UI/Elements/Shop/ammo_shop.tscn" id="6_5fvso"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="7_ekc3t"]
+[ext_resource type="Texture2D" uid="uid://c6xr7twvwmhn2" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Textfield_01.png" id="8_na46i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2r4e"]
+atlas = ExtResource("7_ekc3t")
+region = Rect2(273, 440, 14, 16)
+
+[node name="Shop" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Bytes" parent="VBoxContainer" instance=ExtResource("1_t0gwl")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Section Seperator" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="ItemBG" type="NinePatchRect" parent="VBoxContainer/CenterContainer/Section Seperator"]
+custom_minimum_size = Vector2(195, 155)
+layout_mode = 2
+texture = ExtResource("2_nekmt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Base Vbox" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Item Hbox" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox"]
+layout_mode = 2
+
+[node name="Item Vbox" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox"]
+layout_mode = 2
+
+[node name="Shop Slot" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Shop Slot2" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Shop Slot3" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Shop Slot4" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Shop Slot" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer2" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Shop Slot2" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer2" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Shop Slot3" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer2" instance=ExtResource("3_qemew")]
+layout_mode = 2
+
+[node name="Special Vbox" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox"]
+layout_mode = 2
+
+[node name="Special Shop Slot" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Special Vbox" instance=ExtResource("4_ug6jp")]
+layout_mode = 2
+
+[node name="Special Shop Slot2" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Special Vbox" instance=ExtResource("4_ug6jp")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Item Vbox/HBoxContainer2/Shop Slot3")
+
+[node name="Comsumeable Hbox" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox"]
+layout_mode = 2
+
+[node name="Heal Shop" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox" instance=ExtResource("5_bdg4x")]
+layout_mode = 2
+
+[node name="Ammo Shop" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox" instance=ExtResource("6_5fvso")]
+layout_mode = 2
+
+[node name="Merchant Vbox" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator"]
+layout_mode = 2
+
+[node name="MerchantBG" type="NinePatchRect" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox"]
+custom_minimum_size = Vector2(70, 120)
+layout_mode = 2
+texture = ExtResource("2_nekmt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_j2r4e")
+stretch_mode = 5
+
+[node name="TextureRect2" type="NinePatchRect" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(62, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_na46i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG/MarginContainer/VBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 7
+text = "Phasellus sed pulvinar urna, nec viverra urna. Nulla id augue et dui porta molestie. Phasellus egestas feugiat ex, vel malesuada felis hendrerit scelerisque. Donec consequat euismod eros, vel lacinia quam condimentum vitae. Nam commodo quam ac velit blandit, sit amet volutpat leo accumsan. Fusce dui nunc, semper eget pretium sed, venenatis ac metus. Etiam aliquam arcu vitae tortor congue sollicitudin. Vestibulum egestas at justo at fermentum."
+scroll_following = true
+
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox"]
+layout_mode = 2
+text = "Leave
+"

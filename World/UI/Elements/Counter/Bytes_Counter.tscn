@@ -4,4 +4,5 @@
 [ext_resource type="Script" path="res://World/UI/Elements/Counter/Bytes_Counter.gd" id="2_5rl8r"]
 
 [node name="Bytes" instance=ExtResource("1_emev3")]
+custom_minimum_size = Vector2(50, 10)
 script = ExtResource("2_5rl8r")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b50d7paphstxd"]
+
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="1_kb6c5"]
+[ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_yv1tq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovwyv"]
+atlas = ExtResource("1_kb6c5")
+region = Rect2(175, 200, 18, 17)
+
+[node name="Consumable Shop" type="Button"]
+custom_minimum_size = Vector2(90, 25)
+offset_right = 88.0
+offset_bottom = 24.0
+icon = SubResource("AtlasTexture_ovwyv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yv1tq")
+theme_override_font_sizes/font_size = 25
+text = "Heal"
+
+[node name="Price" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yv1tq")
+text = "100"
