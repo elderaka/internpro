@@ -1,9 +1,5 @@
 extends Panel
 
-
-
-@export var inventory = load("res://World/Player/PlayerInventory.gd")
-
 var default_tex = preload("res://World/Player/Inventory/item_slot_default_background.png")
 var empty_tex = preload("res://World/Player/Inventory/item_slot_empty_background.png")
 

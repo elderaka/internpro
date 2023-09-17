@@ -1,29 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4lgtxaxdh8dr"]
+[gd_scene load_steps=7 format=3 uid="uid://fpfjsbd8yt4s"]
 
-[ext_resource type="Script" path="res://World/Player/Inventory/inventory.gd" id="1_b4svs"]
-[ext_resource type="Texture2D" uid="uid://baq7kapus0aos" path="res://World/Player/Inventory/default_inventory_background.png" id="2_nwnwj"]
-[ext_resource type="Texture2D" uid="uid://b7tomp2k6aulo" path="res://World/Player/Inventory/item_slot_default_background.png" id="3_ycitd"]
-[ext_resource type="Script" path="res://World/Player/Inventory/item_slot.gd" id="4_3kmd8"]
-[ext_resource type="Script" path="res://World/Player/Inventory/lore_slot.gd" id="5_1f7ub"]
-[ext_resource type="Script" path="res://World/Player/Inventory/weapon_slot.gd" id="6_looge"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftgbn"]
-texture = ExtResource("3_ycitd")
+[ext_resource type="Script" path="res://sprite/Inventory/inventory.gd" id="1_kx84b"]
+[ext_resource type="Texture2D" path="res://sprite/Inventory/default_inventory_background.png" id="2_1jmej"]
+[ext_resource type="Texture2D" path="res://sprite/Inventory/item_slot_default_background.png" id="3_6e1ea"]
+[ext_resource type="Script" path="res://sprite/Inventory/item_slot.gd" id="4_8lff1"]
 
 [sub_resource type="Theme" id="Theme_dgguj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gowiq"]
-texture = ExtResource("3_ycitd")
+texture = ExtResource("3_6e1ea")
 
 [node name="inventory" type="Node2D"]
-script = ExtResource("1_b4svs")
+script = ExtResource("1_kx84b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -59.0
 offset_top = 1.0
 offset_right = 318.0
 offset_bottom = 179.0
-texture = ExtResource("2_nwnwj")
+texture = ExtResource("2_1jmej")
 
 [node name="items" type="GridContainer" parent="."]
 offset_left = 8.0
@@ -35,85 +30,86 @@ columns = 4
 [node name="Panel" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme = SubResource("Theme_dgguj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel2" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel3" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel4" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel5" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel6" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel7" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel8" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel9" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel10" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel11" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="Panel12" type="Panel" parent="items"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ftgbn")
-script = ExtResource("4_3kmd8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
+script = ExtResource("4_8lff1")
 
 [node name="lore" type="GridContainer" parent="."]
 offset_left = 145.0
@@ -126,21 +122,18 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
-script = ExtResource("5_1f7ub")
 
 [node name="loreitem2" type="Panel" parent="lore"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
-script = ExtResource("5_1f7ub")
 
 [node name="loreitem3" type="Panel" parent="lore"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
-script = ExtResource("5_1f7ub")
 
 [node name="weapon" type="GridContainer" parent="."]
 offset_left = 181.0
@@ -153,14 +146,12 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
-script = ExtResource("6_looge")
 
 [node name="weaponitem2" type="Panel" parent="weapon"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = SubResource("Theme_dgguj")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gowiq")
-script = ExtResource("6_looge")
 
 [node name="weaponitem3" type="Panel" parent="."]
 custom_minimum_size = Vector2(45, 45)

@@ -12,4 +12,4 @@ extends Resource
 @export var lifeSteal = 0.0
 @export var weapon = "dot"
 @export var bytes = 0
- 
+@export var weapon_slot = ["dot","lance"]
