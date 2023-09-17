@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk15p4vg13klp"]
+
+[ext_resource type="PackedScene" uid="uid://elov6rh30348" path="res://World/UI/Elements/ItemSelection/item_selection.tscn" id="1_347oq"]
+
+[node name="Chest Selection" instance=ExtResource("1_347oq")]
+
+[node name="Label" parent="NinePatchRect/VBoxContainer" index="0"]
+text = "Chest"

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk77lei8jshir"]
+
+[ext_resource type="Theme" uid="uid://ba0mnjxe2p7tf" path="res://World/UI/Elements/SkillSelection/selection.tres" id="1_0scnt"]
+[ext_resource type="Script" path="res://World/UI/Elements/Shop/item_slot.gd" id="2_mfrim"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_ysvai"]
+[ext_resource type="PackedScene" uid="uid://n6y8i4c22uhj" path="res://World/UI/Elements/Shop/pop_up.tscn" id="4_q1f7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66cxa"]
+atlas = ExtResource("3_ysvai")
+region = Rect2(128, 295, 16, 18)
+
+[node name="Slot" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+theme = ExtResource("1_0scnt")
+script = ExtResource("2_mfrim")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = SubResource("AtlasTexture_66cxa")
+stretch_mode = 5
+
+[node name="PopUp" parent="." instance=ExtResource("4_q1f7l")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -36.0
+offset_right = 32.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_hover"]
+[connection signal="focus_exited" from="." to="." method="_on_exit"]
+[connection signal="mouse_entered" from="." to="." method="_on_hover"]
+[connection signal="mouse_exited" from="." to="." method="_on_exit"]

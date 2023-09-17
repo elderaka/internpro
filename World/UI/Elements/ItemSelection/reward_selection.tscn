@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckt7y40k3sb5k"]
+
+[ext_resource type="PackedScene" uid="uid://elov6rh30348" path="res://World/UI/Elements/ItemSelection/item_selection.tscn" id="1_qxqc0"]
+
+[node name="Reward Selection" instance=ExtResource("1_qxqc0")]

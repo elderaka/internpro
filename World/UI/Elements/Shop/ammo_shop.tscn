@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlrhe28j4ukp3"]
+
+[ext_resource type="PackedScene" uid="uid://b50d7paphstxd" path="res://World/UI/Elements/Shop/consumable_shop.tscn" id="1_q7sdx"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="2_p0j1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfctf"]
+atlas = ExtResource("2_p0j1c")
+region = Rect2(248, 369, 15, 12)
+
+[node name="Ammo Shop" instance=ExtResource("1_q7sdx")]
+icon = SubResource("AtlasTexture_lfctf")
+
+[node name="Name" parent="MarginContainer" index="0"]
+text = "Ammo"

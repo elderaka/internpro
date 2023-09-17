@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk8l77e803uvo"]
+
+[ext_resource type="Texture2D" uid="uid://bihabdcjvjqo0" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_01_Standard.png" id="1_g1odo"]
+[ext_resource type="Script" path="res://World/UI/Pause.gd" id="1_gjhng"]
+[ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_1bqrq"]
+
+[node name="Pause" type="CanvasLayer"]
+layer = 100
+
+[node name="Pause" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gjhng")
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Pause/CenterContainer"]
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+texture = ExtResource("1_g1odo")
+patch_margin_left = 2
+patch_margin_top = 3
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/CenterContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -58.0
+offset_right = 19.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause/CenterContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1bqrq")
+theme_override_font_sizes/font_size = 25
+text = "Paused"
+
+[node name="Resume" type="Button" parent="Pause/CenterContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Storage" type="Button" parent="Pause/CenterContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Storage"
+
+[node name="Option" type="Button" parent="Pause/CenterContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Exit" type="Button" parent="Pause/CenterContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Resume" to="Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Storage" to="Pause" method="_on_storage_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Option" to="Pause" method="_on_option_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Exit" to="Pause" method="_on_exit_pressed"]

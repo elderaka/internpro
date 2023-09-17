@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://elov6rh30348"]
+
+[ext_resource type="Script" path="res://World/UI/Elements/ItemSelection/item_selection.gd" id="1_1esm2"]
+[ext_resource type="Texture2D" uid="uid://be47vioh7vimm" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_02_Standard.png" id="1_oem5s"]
+[ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_6sfsr"]
+[ext_resource type="PackedScene" uid="uid://dbs3imbc3o6d8" path="res://World/UI/Elements/ItemSelection/itemSelect.tscn" id="3_mqpqb"]
+
+[node name="Item Selection" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1esm2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+texture = ExtResource("1_oem5s")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6sfsr")
+theme_override_font_sizes/font_size = 20
+text = "Reward"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemSelect" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("3_mqpqb")]
+layout_mode = 2
+
+[node name="ItemSelect2" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("3_mqpqb")]
+layout_mode = 2
+
+[node name="ItemSelect3" parent="NinePatchRect/VBoxContainer/HBoxContainer" instance=ExtResource("3_mqpqb")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(25, 18)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 13
+text = "Skip"
