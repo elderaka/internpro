@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hold = $Hold
 @onready var muzzle = $Marker2D/Muzzle
 @onready var marker_2d = $Marker2D
+@onready var firecd = $firerate
 
 var aiming = false
 var weapon_slot = PlayerInventory.weapon
@@ -43,11 +44,22 @@ func _physics_process(delta):
 	marker_2d.look_at(get_global_mouse_position())
 	
 	if Input.is_action_pressed("Shoot"):
-		if not aiming:
-			spawnBullet()
-			aiming = true
-		else:
-			aim()
+		if PlayerInventory.weapon[weapon_pos] != "datathrower":
+			if not aiming:
+				spawnBullet()
+				aiming = true
+			else:
+				aim()
+		elif PlayerInventory.weapon[weapon_pos] == "datathrower":
+			var cooldown = false
+			if cooldown == false:
+				spawnBullet()
+				firecd.start()
+				shoot()
+				cooldown = true
+			elif firecd.time_left == 0:
+				
+				cooldown = false
 	elif Input.is_action_just_released("Shoot"):
 		if aiming:
 			shoot()
@@ -107,6 +119,14 @@ func update_weapon():
 			weapon_pos -= 1
 		else:
 			weapon_pos += 1
+	
+	match PlayerInventory.weapon[weapon_pos]:
+		"dot":
+			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
+		"lance":
+			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+		"datathrower":
+			weapon_used = load("res://World/Weapon/datathrower/dt_stats.tres")
 	
 	
 		

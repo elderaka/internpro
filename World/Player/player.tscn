@@ -24,6 +24,9 @@ movement_data = ExtResource("2_davsx")
 stats = ExtResource("3_7ukfu")
 Bullet = ExtResource("4_cfmpf")
 
+[node name="dtDespawn" type="Area2D" parent="."]
+position = Vector2(0, 8)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(0.148437, 0.140625)
@@ -58,5 +61,8 @@ script = ExtResource("6_673pg")
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("7_4cn2a")]
 visible = false
+
+[node name="firerate" type="Timer" parent="."]
+wait_time = 0.4
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
