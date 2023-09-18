@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://difcbo14clhhl"]
+
+[ext_resource type="Texture2D" uid="uid://bq2ntsx55yiqg" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Slot_01_Selected.png" id="1_c887m"]
+[ext_resource type="Script" path="res://World/UI/Elements/Map/button.gd" id="1_caf5w"]
+[ext_resource type="StyleBox" uid="uid://coh2crpgeqnlb" path="res://World/UI/Elements/Map/room_map.tres" id="2_o3c0c"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="2_x5hyo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lw7bm"]
+texture = ExtResource("1_c887m")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[sub_resource type="Theme" id="Theme_r8lje"]
+Button/styles/disabled = SubResource("StyleBoxTexture_lw7bm")
+Button/styles/hover = ExtResource("2_o3c0c")
+Button/styles/normal = ExtResource("2_o3c0c")
+Button/styles/pressed = ExtResource("2_o3c0c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yq8l"]
+atlas = ExtResource("2_x5hyo")
+region = Rect2(250, 320, 10, 17)
+
+[node name="RoomMap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_caf5w")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_r8lje")
+disabled = true
+icon = SubResource("AtlasTexture_5yq8l")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
