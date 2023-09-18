@@ -5,6 +5,7 @@ extends Node2D
 @onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
 @onready var reward = $Reward
 
+var getReward = false
 func _ready():
 	polygon_2d.polygon = collision_polygon_2d.polygon
 
