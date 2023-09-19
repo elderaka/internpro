@@ -1,6 +1,8 @@
 extends Control
 
-@onready var mainMenu = "res://World/UI/menu.tscn"
+signal exited
+
+@onready var mainMenu = load("res://World/UI/menu.tscn")
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -25,7 +27,10 @@ func _on_option_pressed():
 
 func _on_exit_pressed():
 	pause()
-	get_tree().change_scene_to_file(mainMenu)
+	var menu = mainMenu.instantiate()
+	print(mainMenu)
+	get_tree().get_nodes_in_group("game")[0].add_child(menu)
+	emit_signal("exited")
 
 
 

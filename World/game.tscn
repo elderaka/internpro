@@ -1,7 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpuaiqqnsv1h1"]
+[gd_scene load_steps=4 format=3 uid="uid://cpuaiqqnsv1h1"]
 
+[ext_resource type="Script" path="res://World/game.gd" id="1_1bg0d"]
 [ext_resource type="PackedScene" uid="uid://d3bladx8rdy6f" path="res://World/UI/menu.tscn" id="1_3gtja"]
+[ext_resource type="PackedScene" uid="uid://calfl1ylqbcf4" path="res://World/UI/Elements/Map/map.tscn" id="3_0xpt0"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["game"]]
+script = ExtResource("1_1bg0d")
 
 [node name="Menu" parent="." instance=ExtResource("1_3gtja")]
+
+[node name="Map" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Map" parent="Map" instance=ExtResource("3_0xpt0")]
+
+[node name="Level" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="open_room" from="Menu" to="." method="open_room"]

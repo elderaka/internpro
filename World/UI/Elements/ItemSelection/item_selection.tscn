@@ -63,3 +63,8 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 13
 text = "Skip"
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/ItemSelect" to="." method="_on_item_select_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/ItemSelect2" to="." method="_on_item_select_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/ItemSelect3" to="." method="_on_item_select_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -24,6 +24,7 @@ atlas = ExtResource("2_x5hyo")
 region = Rect2(250, 320, 10, 17)
 
 [node name="RoomMap" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_caf5w")
