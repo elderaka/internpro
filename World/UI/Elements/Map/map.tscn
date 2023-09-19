@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://calfl1ylqbcf4"]
+[gd_scene load_steps=7 format=3 uid="uid://calfl1ylqbcf4"]
 
 [ext_resource type="Script" path="res://World/UI/Elements/Map/MapCtrl.gd" id="1_4l30u"]
+[ext_resource type="Script" path="res://World/UI/Elements/Map/map.gd" id="1_6qccc"]
+[ext_resource type="Resource" uid="uid://lo4n3c6u03pa" path="res://World/UI/Elements/RandomPicker/RandRoom/Fight.tres" id="2_4ecpn"]
+[ext_resource type="Resource" uid="uid://ccwfjh6y661nf" path="res://World/UI/Elements/RandomPicker/RandRoom/Story.tres" id="3_ae0kf"]
+[ext_resource type="Resource" uid="uid://c4qjh55a8pe5x" path="res://World/UI/Elements/RandomPicker/RandRoom/Shop.tres" id="4_1l8k7"]
+[ext_resource type="Resource" uid="uid://b3rhf35nu4gwb" path="res://World/UI/Elements/RandomPicker/RandRoom/Chest.tres" id="5_fqvn4"]
 
 [node name="Map" type="MarginContainer"]
 anchors_preset = 15
@@ -8,7 +13,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6qccc")
 
 [node name="MapGenerator" type="Control" parent="."]
 layout_mode = 2
 script = ExtResource("1_4l30u")
+rooms = Array[Resource("res://World/UI/Elements/RandomPicker/random_item.gd")]([ExtResource("2_4ecpn"), ExtResource("3_ae0kf"), ExtResource("4_1l8k7"), ExtResource("5_fqvn4")])
+
+[connection signal="picked_room" from="MapGenerator" to="." method="_on_map_generator_picked_room"]

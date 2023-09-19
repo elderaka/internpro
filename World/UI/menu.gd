@@ -1,10 +1,13 @@
 extends CanvasLayer
 
+signal open_room(room, roomType)
+
 @export var main_menu: PackedScene
 @export var skill_selection: PackedScene
 @export var level_one: PackedScene
 
 @onready var margin_container = $MarginContainer
+@onready var game = $".."
 
 var curr_menu
 
@@ -33,4 +36,5 @@ func _on_in_game_ui_back():
 
 func _on_in_game_ui_play():
 	if level_one is PackedScene:
-		get_tree().change_scene_to_packed(level_one)
+		emit_signal("open_room", level_one, "Fight")
+		queue_free()

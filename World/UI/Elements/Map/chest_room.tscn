@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjuxxft5o6vnd"]
+
+[ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_u7mlf"]
+[ext_resource type="PackedScene" uid="uid://bk15p4vg13klp" path="res://World/UI/Elements/ItemSelection/chest_selection.tscn" id="2_tjsry"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_kxm0x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt3vc"]
+atlas = ExtResource("3_kxm0x")
+region = Rect2(103, 178, 18, 14)
+
+[node name="Chest Room" instance=ExtResource("1_u7mlf")]
+room = ExtResource("2_tjsry")
+roomType = "Chest"
+
+[node name="Button" parent="." index="0"]
+icon = SubResource("AtlasTexture_qt3vc")

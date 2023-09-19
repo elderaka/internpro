@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk8l77e803uvo"]
+[gd_scene load_steps=5 format=3 uid="uid://bk8l77e803uvo"]
 
+[ext_resource type="Script" path="res://World/UI/pauseCV.gd" id="1_7ivtw"]
 [ext_resource type="Texture2D" uid="uid://bihabdcjvjqo0" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_01_Standard.png" id="1_g1odo"]
 [ext_resource type="Script" path="res://World/UI/Pause.gd" id="1_gjhng"]
 [ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_1bqrq"]
 
 [node name="Pause" type="CanvasLayer"]
 layer = 100
+script = ExtResource("1_7ivtw")
 
 [node name="Pause" type="Control" parent="."]
 process_mode = 3
@@ -81,6 +83,7 @@ text = "Option"
 layout_mode = 2
 text = "Exit"
 
+[connection signal="exited" from="Pause" to="." method="_on_pause_exited"]
 [connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Resume" to="Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Storage" to="Pause" method="_on_storage_pressed"]
 [connection signal="pressed" from="Pause/CenterContainer/NinePatchRect/VBoxContainer/Option" to="Pause" method="_on_option_pressed"]

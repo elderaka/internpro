@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bk8l77e803uvo" path="res://World/UI/pause.tscn" id="6_clxm1"]
 [ext_resource type="PackedScene" uid="uid://ckt7y40k3sb5k" path="res://World/UI/Elements/ItemSelection/reward_selection.tscn" id="7_wcels"]
 
-[node name="TestWorld" type="Node2D"]
+[node name="TestWorld" type="Node2D" groups=["level"]]
 script = ExtResource("1_27wdy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -38,3 +38,5 @@ stats = ExtResource("4_gyxvw")
 visible = false
 
 [node name="Reward Selection" parent="Reward" instance=ExtResource("7_wcels")]
+unique_name_in_owner = true
+process_mode = 3

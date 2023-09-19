@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0irvrjacf0uw"]
+
+[ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_v6qiv"]
+[ext_resource type="PackedScene" uid="uid://bnkff011gft5r" path="res://World/UI/Elements/Shop/shop.tscn" id="2_wsaf5"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_unh6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckjsv"]
+atlas = ExtResource("3_unh6v")
+region = Rect2(151, 152, 18, 17)
+
+[node name="Shop Room" instance=ExtResource("1_v6qiv")]
+room = ExtResource("2_wsaf5")
+roomType = "Shop"
+
+[node name="Button" parent="." index="0"]
+icon = SubResource("AtlasTexture_ckjsv")

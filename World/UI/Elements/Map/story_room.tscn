@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqvslgkg4wslt"]
+
+[ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_m7yes"]
+[ext_resource type="PackedScene" uid="uid://b2ert0gtglwfs" path="res://World/UI/Elements/Story/story.tscn" id="2_jdmnb"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_sn861"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb8m5"]
+atlas = ExtResource("3_sn861")
+region = Rect2(56, 80, 16, 16)
+
+[node name="Story Room" instance=ExtResource("1_m7yes")]
+room = ExtResource("2_jdmnb")
+roomType = "Story"
+
+[node name="Button" parent="." index="0"]
+icon = SubResource("AtlasTexture_eb8m5")

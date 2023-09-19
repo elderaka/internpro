@@ -1,5 +1,7 @@
 extends Control
 
+signal picked_room(room, type)
+
 const plane_x = 10
 const plane_y = 5
 #node count depends on amoung of available grid
@@ -9,7 +11,7 @@ const path_count = 20
 const mapScale = 25
 
 var events = {}
-var event_scene = preload("res://World/UI/Elements/Map/room_map.tscn")
+@export var rooms : Array[Random_Item]
 
 func _ready():
 	var generator = preload("res://World/UI/Elements/Map/mapGenerator.gd").new()
@@ -17,14 +19,15 @@ func _ready():
 	
 	for k in map_data.nodes.keys():
 		var point = map_data.nodes[k]
-		var event = event_scene.instantiate()
+		var room = load(random_room(point))
+		var event = room.instantiate()
 		event.position = point * mapScale + (get_viewport_rect().size/8)
 		add_child(event)
 		event.set_color(k)
 		event.set_point(point)
 		event.connect("room_picked", picked_a_room)
+		event.connect("send_room", send_room)
 		events[k] = event
-	
 	
 	for path in map_data.paths:
 		for i in range(path.size()-1):
@@ -33,11 +36,22 @@ func _ready():
 			
 			events[index1].add_child_event(events[index2])
 	
+	var is_chest_room = false
+	var midRoomCount = 0
 	for child in get_children():
 		for grandchild in child.children:
-			if grandchild.point.x == child.point.x:
+			if grandchild.point.x <= child.point.x:
 				get_tree().reload_current_scene()
 				print("refreshed")
+		if child.point.x == 5:
+			is_chest_room = true
+			midRoomCount += 1
+	
+	if not is_chest_room or midRoomCount <= 1:
+		get_tree().reload_current_scene()
+		print("refreshed")
+	
+	get_child(0)._on_button_pressed()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -47,3 +61,15 @@ func picked_a_room(point):
 	for child in get_children():
 		if child not in point.children:
 			child.button.disabled = true
+
+func random_room(point):
+	var randomRoomPicker = Random_Picker.new()
+	var picked = "res://World/UI/Elements/Map/fight_room.tscn"
+	if point.x == 5:
+		picked = "res://World/UI/Elements/Map/chest_room.tscn"
+	elif point.x > 0:
+		picked = randomRoomPicker.pick_random_item(rooms)
+	return picked
+
+func send_room(room, type):
+	emit_signal("picked_room", room, type)

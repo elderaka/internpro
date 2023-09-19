@@ -3,10 +3,15 @@ extends Control
 const margin = 10
 
 signal room_picked(point)
+signal send_room(room, roomType)
+
+@export var room: PackedScene
+@export var roomType: String
 
 var children: Array = []
 var circleColor = Color.GHOST_WHITE
 var point = Vector2.ZERO
+
 @onready var button = %Button
 
 func add_child_event(child):
@@ -25,8 +30,6 @@ func set_point(point):
 		button.disabled = false
 
 func _draw():
-	draw_circle(Vector2.ZERO, 4, circleColor)
-	
 	for child in children:
 		var line = (child.position + Vector2(20, 15)) - (position + Vector2(20, 15))
 		var normal = line.normalized()
@@ -34,10 +37,12 @@ func _draw():
 		var color = Color.GRAY
 		draw_line(normal * margin, line, color, 1, true)
 
-
 func _on_button_pressed():
+	print("room picked")
 	for child in children:
 		child.button.disabled = false
 	button.disabled = true
 	emit_signal("room_picked", self)
+	print(room)
+	emit_signal("send_room", room, roomType)
 	

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://3a5om83dxyy7"]
+
+[ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_d0orh"]
+[ext_resource type="PackedScene" uid="uid://bq0txcigv6iff" path="res://World/test_world.tscn" id="2_dju8o"]
+
+[node name="FightRoom" instance=ExtResource("1_d0orh")]
+room = ExtResource("2_dju8o")
+roomType = "Fight"
