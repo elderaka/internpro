@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Internpro"
-run/main_scene="res://World/UI/menu.tscn"
+run/main_scene="res://World/game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
