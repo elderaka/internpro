@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq0txcigv6iff"]
+[gd_scene load_steps=7 format=3 uid="uid://bq0txcigv6iff"]
 
 [ext_resource type="Script" path="res://World/test_world.gd" id="1_27wdy"]
 [ext_resource type="PackedScene" uid="uid://dcbo2t0hstdgw" path="res://World/Player/player.tscn" id="2_411yv"]
 [ext_resource type="PackedScene" uid="uid://c3aungb3a2m5v" path="res://World/Enemy/enemy.tscn" id="3_ihor0"]
 [ext_resource type="Resource" uid="uid://dd4td520cdk1s" path="res://World/Enemy/devmode/devenemstats.tres" id="4_gyxvw"]
 [ext_resource type="PackedScene" uid="uid://bdgtl6371c1n4" path="res://World/UI/ui.tscn" id="5_ao3mr"]
-[ext_resource type="PackedScene" uid="uid://bk8l77e803uvo" path="res://World/UI/pause.tscn" id="6_clxm1"]
 [ext_resource type="PackedScene" uid="uid://ckt7y40k3sb5k" path="res://World/UI/Elements/ItemSelection/reward_selection.tscn" id="7_wcels"]
 
 [node name="TestWorld" type="Node2D" groups=["level"]]
@@ -31,8 +30,6 @@ position = Vector2(152, 88)
 stats = ExtResource("4_gyxvw")
 
 [node name="UI" parent="." instance=ExtResource("5_ao3mr")]
-
-[node name="Pause" parent="." instance=ExtResource("6_clxm1")]
 
 [node name="Reward" type="CanvasLayer" parent="."]
 visible = false
