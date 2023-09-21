@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal open_room(room, roomType)
+signal game_start
 
 @export var main_menu: PackedScene
 @export var skill_selection: PackedScene
@@ -37,4 +38,5 @@ func _on_in_game_ui_back():
 func _on_in_game_ui_play():
 	if level_one is PackedScene:
 		emit_signal("open_room", level_one, "Fight")
+		emit_signal("game_start")
 		queue_free()

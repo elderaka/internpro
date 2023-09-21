@@ -53,10 +53,6 @@ func _ready():
 	
 	get_child(0)._on_button_pressed()
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		get_tree().reload_current_scene()
-
 func picked_a_room(point):
 	for child in get_children():
 		if child not in point.children:
@@ -67,6 +63,8 @@ func random_room(point):
 	var picked = "res://World/UI/Elements/Map/fight_room.tscn"
 	if point.x == 5:
 		picked = "res://World/UI/Elements/Map/chest_room.tscn"
+	elif point.x == 10:
+		picked = "res://World/UI/Elements/Map/fight_room.tscn"
 	elif point.x > 0:
 		picked = randomRoomPicker.pick_random_item(rooms)
 	return picked

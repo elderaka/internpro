@@ -51,7 +51,7 @@ theme_override_font_sizes/normal_font_size = 10
 text = "Nam eget dolor diam. Quisque ac augue ut dolor volutpat tempor sit amet a nunc. Mauris fringilla sapien at mi imperdiet, quis luctus magna ornare. Praesent feugiat diam ac velit imperdiet, ut scelerisque magna scelerisque. Quisque pulvinar enim ut elit bibendum, non vulputate eros interdum. Cras laoreet neque sit amet turpis facilisis lobortis. Nam non lacinia quam, eget vehicula mi. Phasellus sodales, nunc efficitur consectetur dictum, nibh neque luctus dui, vel ullamcorper ligula tellus quis est. Proin at mauris facilisis, volutpat nisi sed, egestas tortor. Donec eget est in neque viverra ullamcorper."
 scroll_following = true
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Option1" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 14)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -59,7 +59,7 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
 text = "Option 1"
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Option2" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 14)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -67,7 +67,7 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
 text = "Option 2"
 
-[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Leave" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 14)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -79,3 +79,5 @@ text = "Leave"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]

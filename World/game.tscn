@@ -17,4 +17,5 @@ visible = false
 [node name="Level" type="CanvasLayer" parent="."]
 visible = false
 
+[connection signal="game_start" from="Menu" to="." method="_on_menu_game_start"]
 [connection signal="open_room" from="Menu" to="." method="open_room"]
