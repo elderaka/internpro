@@ -7,6 +7,7 @@ signal level_finished
 @onready var reward = $Reward
 @onready var reward_selection = %"Reward Selection"
 
+var getReward = false
 func _ready():
 	polygon_2d.polygon = collision_polygon_2d.polygon
 	reward_selection.connect("item_picked", picked_item)
