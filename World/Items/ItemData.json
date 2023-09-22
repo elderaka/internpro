@@ -1,30 +1,98 @@
 {
 	"Dot Boost":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Tier 1",
 		"Description": "Increase Damage."
 	},
 	"RAM Upgrade":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Tier 1",
 		"Description": "Increase RAM."
 	},
 	"Crit Chance UP":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Tier 1",
 		"Description": "Increase Crit Chance."
 	},
 	"Crit Damage UP":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Tier 1",
 		"Description": "Increase Crit Damage."
 	},
 	"Processor Boost":{
-		"ItemCategory": "Item",
-		"Description": "Increase Knockback."
+		"ItemCategory": "Tier 1",
+		"Description": "Increase Firerate."
 	},
+    "Projectile Pierce": {
+        "ItemCategory": "Tier 1",
+        "Description": "Increase Pierce."
+    },
+    "Knock-Down": {
+        "ItemCategory": "Tier 1",
+        "Description": "Increase Knockback."
+    },
+    "Vampirism": {
+        "ItemCategory": "Tier 1",
+        "Description": "Increase Lifesteal."
+    },
+    "Data GET+": {
+        "ItemCategory": "Tier 2",
+        "Description": "Data yang diperoleh +50%."
+    },
+    "Speedster": {
+        "ItemCategory": "Tier 2",
+        "Description": "Firerate +25%, Speed +50%"
+    },
+    "Overclock": {
+        "ItemCategory": "Tier 2",
+        "Description": "HP replenish, RAM replenish, MAX HP-."
+    },
+    "Cannon-Ball": {
+        "ItemCategory": "Tier 2",
+        "Description": "Knockback++, Fire rate-, Player dapat knockback apabila menyerang."
+    },
+    "Sniper": {
+        "ItemCategory": "Tier 2",
+        "Description": "Fire-rate--, Crit Chance++, Crit Damage+, ada pointer dimana proyektil melandas."
+    },
+    "Eagle Eyes": {
+        "ItemCategory": "Tier 2",
+        "Description": "Dapat melihat bar darah musuh."
+    },
+    "Mayhem": {
+        "ItemCategory": "Tier 3",
+        "Description": "Firerate+++,Crit 0%."
+    },
+    "Berserker": {
+        "ItemCategory": "Tier 3",
+        "Description": "Damage +75% jika darah kurang dari 30%."
+    },
+    "Last Stand": {
+        "ItemCategory": "Tier 3",
+        "Description": "Damage +100% tapi tidak bisa lagi menambahkan darah."
+    },
+    "Turtle": {
+        "ItemCategory": "Tier 3",
+        "Description": "Player speed -50%, MAX HP + 100%."
+    },
+    "Precision Shooter": {
+        "ItemCategory": "Tier 3",
+        "Description": "Crit Chance 100%, Fire rate -70%. Sisa Crit Chance jika melebihi 100% akan menjadi Crit Damage."
+    },
+	"Charlotte’s Vinyl": {
+		"ItemCategory": "Lore",
+        "Description": "Vinyl favorit Charlotte. MAX HP +50%, setiap ronde DISK replenish 20%."
+    },
+    "Charlotte’s Dress": {
+		"ItemCategory": "Lore"
+        "Description": "Baju yang suka dipakai oleh Charlotte. MAX RAM +50%, setiap ronde RAM replenish 40%."
+    },
+    "Charlotte’s Hologram": {
+		"ItemCategory": "Lore"
+        "Description": "Bentuk Charlotte di dunia virtual. MAX ITEM +3 slot."
+    },
 	"Dot":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Weapon",
 		"Description": "Normal Weapon."
 	},
 	"Lance":{
-		"ItemCategory": "Item",
+		"ItemCategory": "Weapon",
 		"Description": "Knockback weapon."
 	}
 }
