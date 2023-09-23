@@ -108,9 +108,12 @@ func update_sprite(direction):
 
 func update_health():
 	emit_signal("health_change", stats.health, stats.maxhealth)
+	PlayerAutoload.health = stats.health
+	PlayerAutoload.maxhealth = stats.maxhealth
 	
 func update_bytes():
 	emit_signal("byte_change", stats.bytes)
+	PlayerAutoload.bytes = stats.bytes
 	
 func update_weapon():
 	emit_signal("weapon_change", PlayerInventory.weapon[weapon_pos])
@@ -140,7 +143,7 @@ func spawnBullet():
 
 func aim():
 	var b = $Projectile
-	b.weapon_stats = weapon_used
+	b.weapon_stats = weapon_used 
 	b.animation = weapon_used.sprite
 	b.transform = marker_2d.transform
 

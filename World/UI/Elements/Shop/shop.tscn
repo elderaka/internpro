@@ -29,6 +29,7 @@ script = ExtResource("1_8x8yg")
 layout_mode = 2
 
 [node name="Bytes" parent="VBoxContainer" instance=ExtResource("1_t0gwl")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 

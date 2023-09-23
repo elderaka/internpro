@@ -17,6 +17,7 @@ size = Vector2(18, 18)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -8)
 collision_layer = 2
+collision_mask = 17
 floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_aa5cq")
@@ -64,5 +65,3 @@ visible = false
 
 [node name="firerate" type="Timer" parent="."]
 wait_time = 0.4
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -40,6 +40,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_wdkvv")
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(0, -8)
 collision_layer = 4
+collision_mask = 17
 script = ExtResource("1_3ob7m")
 movement_data = ExtResource("2_xi7gw")
 stats = ExtResource("3_id0g2")
