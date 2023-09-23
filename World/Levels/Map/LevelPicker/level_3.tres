@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Random_Item" load_steps=2 format=3 uid="uid://dr0dgl3p4o0ui"]
+
+[ext_resource type="Script" path="res://World/UI/Elements/RandomPicker/random_item.gd" id="1_1efbj"]
+
+[resource]
+script = ExtResource("1_1efbj")
+value = "res://World/Levels/Map/level_3.tscn"
+pickedChance = 1
+canBePicked = true
