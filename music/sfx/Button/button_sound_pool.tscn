@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4ctph4xggeqo"]
+
+[ext_resource type="Script" path="res://music/AudioPlayer/sound_pool.gd" id="1_n3gt8"]
+[ext_resource type="PackedScene" uid="uid://buvvvqgxapmua" path="res://music/AudioPlayer/sound_queue.tscn" id="2_pihf5"]
+[ext_resource type="AudioStream" uid="uid://dlsch8qts8g4v" path="res://music/sfx/Button/tywriterclick1.mp3" id="3_qjy2c"]
+[ext_resource type="AudioStream" uid="uid://ba7rjo1d4xcym" path="res://music/sfx/Button/clicksound2.mp3" id="4_i3eiq"]
+[ext_resource type="AudioStream" uid="uid://dfs8j8onmlawd" path="res://music/sfx/Button/clicksound3.mp3" id="5_23joq"]
+
+[node name="ButtonSoundPool" type="Node"]
+script = ExtResource("1_n3gt8")
+
+[node name="SoundQueue" parent="." instance=ExtResource("2_pihf5")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundQueue"]
+stream = ExtResource("3_qjy2c")
+
+[node name="SoundQueue2" parent="." instance=ExtResource("2_pihf5")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundQueue2"]
+stream = ExtResource("4_i3eiq")
+
+[node name="SoundQueue3" parent="." instance=ExtResource("2_pihf5")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundQueue3"]
+stream = ExtResource("5_23joq")

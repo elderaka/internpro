@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl623aytspbh0"
+path="res://.godot/imported/Opening BACKSOUND(play,setting).mp3-2877a4f2b74645ea1dc258f394d0f733.mp3str"
+
+[deps]
+
+source_file="res://music/BGM/Opening BACKSOUND(play,setting).mp3"
+dest_files=["res://.godot/imported/Opening BACKSOUND(play,setting).mp3-2877a4f2b74645ea1dc258f394d0f733.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

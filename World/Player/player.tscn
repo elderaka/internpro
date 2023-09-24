@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcbo2t0hstdgw"]
+[gd_scene load_steps=12 format=3 uid="uid://dcbo2t0hstdgw"]
 
 [ext_resource type="Script" path="res://World/Player/player.gd" id="1_aa5cq"]
 [ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_jalrq"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c80ukt624641l" path="res://World/Weapon/projectile.tscn" id="4_cfmpf"]
 [ext_resource type="Script" path="res://World/Player/Inventory/Inventory_UI.gd" id="6_673pg"]
 [ext_resource type="PackedScene" uid="uid://c4lgtxaxdh8dr" path="res://World/Player/Inventory/inventory.tscn" id="7_4cn2a"]
+[ext_resource type="PackedScene" uid="uid://buvvvqgxapmua" path="res://music/AudioPlayer/sound_queue.tscn" id="8_7yvin"]
+[ext_resource type="AudioStream" uid="uid://dw3taqceuwlbp" path="res://music/sfx/jump.mp3" id="9_pnsl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjlpy"]
 size = Vector2(18, 17)
@@ -65,3 +67,10 @@ visible = false
 
 [node name="firerate" type="Timer" parent="."]
 wait_time = 0.4
+
+[node name="SoundQueue" parent="." instance=ExtResource("8_7yvin")]
+unique_name_in_owner = true
+Count = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundQueue"]
+stream = ExtResource("9_pnsl5")
