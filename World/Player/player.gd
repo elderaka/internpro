@@ -17,6 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var muzzle = $Marker2D/Muzzle
 @onready var marker_2d = $Marker2D
 @onready var firecd = $firerate
+@onready var sound_queue = %SoundQueue
 
 var aiming = false
 var weapon_slot = PlayerInventory.weapon
@@ -78,9 +79,11 @@ func apply_gravity(delta):
 
 	
 func handle_jump():
+	
 	if is_on_floor() or timer.time_left:
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = movement_data.jump_velocity
+			sound_queue.PlaySound()
 	if not is_on_floor():
 		if Input.is_action_just_released("ui_accept") and velocity.y < movement_data.jump_velocity / 2:
 			velocity.y = movement_data.jump_velocity / 2

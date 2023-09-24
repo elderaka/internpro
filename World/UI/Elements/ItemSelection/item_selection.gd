@@ -5,6 +5,7 @@ signal level_finished
 
 func _on_item_select_pressed():
 	print("picked")
+	ButtonSoundPool.PlayRandomSound()
 	emit_signal("item_picked")
 	emit_signal("level_finished")
 	queue_free()
@@ -12,6 +13,7 @@ func _on_item_select_pressed():
 
 func _on_button_pressed():
 	print("picked")
+	ButtonSoundPool.PlayRandomSound()
 	emit_signal("item_picked")
 	emit_signal("level_finished")
 	queue_free()

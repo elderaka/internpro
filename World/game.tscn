@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpuaiqqnsv1h1"]
+[gd_scene load_steps=11 format=3 uid="uid://cpuaiqqnsv1h1"]
 
 [ext_resource type="Script" path="res://World/game.gd" id="1_1bg0d"]
 [ext_resource type="PackedScene" uid="uid://d3bladx8rdy6f" path="res://World/UI/menu.tscn" id="1_3gtja"]
@@ -8,12 +8,20 @@
 [ext_resource type="Resource" uid="uid://dr0dgl3p4o0ui" path="res://World/Levels/Map/LevelPicker/level_3.tres" id="4_8qyd1"]
 [ext_resource type="Resource" uid="uid://cs78b88x8pnq8" path="res://World/Levels/Map/LevelPicker/level_4.tres" id="5_p2t5f"]
 [ext_resource type="Resource" uid="uid://b1rwnyo3u1eg5" path="res://World/Levels/Map/LevelPicker/level_5.tres" id="6_e7d4m"]
+[ext_resource type="PackedScene" uid="uid://buvvvqgxapmua" path="res://music/AudioPlayer/sound_queue.tscn" id="8_vfcsg"]
+[ext_resource type="AudioStream" uid="uid://dl623aytspbh0" path="res://music/BGM/Opening BACKSOUND(play,setting).mp3" id="9_17h5d"]
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_1bg0d")
 fightRooms = Array[Resource("res://World/UI/Elements/RandomPicker/random_item.gd")]([ExtResource("2_kjmfr"), ExtResource("3_44uu6"), ExtResource("4_8qyd1"), ExtResource("5_p2t5f"), ExtResource("6_e7d4m")])
 
 [node name="Menu" parent="." instance=ExtResource("1_3gtja")]
+
+[node name="SoundQueue" parent="Menu" instance=ExtResource("8_vfcsg")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu/SoundQueue"]
+stream = ExtResource("9_17h5d")
+autoplay = true
 
 [node name="Map" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
