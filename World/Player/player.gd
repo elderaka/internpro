@@ -131,8 +131,15 @@ func update_weapon():
 			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
 		"lance":
 			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+		"bounce":
+			weapon_used = load("res://World/Weapon/bounce/bounce_stats.tres")
+		"spread":
+			weapon_used = load("res://World/Weapon/spread/spread_stats.tres")
 		"datathrower":
 			weapon_used = load("res://World/Weapon/datathrower/dt_stats.tres")
+		"laser":
+			weapon_used = load("res://World/Weapon/laser/laser_stats.tres")
+			
 	
 	
 		

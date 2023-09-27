@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcukbghokc3o4"]
+[gd_scene load_steps=3 format=3 uid="uid://bcukbghokc3o4"]
 
 [ext_resource type="PackedScene" uid="uid://b50d7paphstxd" path="res://World/UI/Elements/Shop/consumable_shop.tscn" id="1_qdfqf"]
+[ext_resource type="Script" path="res://World/UI/Elements/Shop/heal_shop.gd" id="2_cyhar"]
 
 [node name="Heal Shop" instance=ExtResource("1_qdfqf")]
+script = ExtResource("2_cyhar")

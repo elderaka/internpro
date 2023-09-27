@@ -4,7 +4,7 @@ signal level_finished
 
 @onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
 @onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
-@onready var reward = $Reward
+@onready var reward = $"Reward/Reward Selection"
 @onready var reward_selection = %"Reward Selection"
 
 var getReward = false

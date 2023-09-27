@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnkff011gft5r"]
+[gd_scene load_steps=12 format=3 uid="uid://bnkff011gft5r"]
 
 [ext_resource type="Script" path="res://World/UI/Elements/Shop/shop.gd" id="1_8x8yg"]
 [ext_resource type="PackedScene" uid="uid://dsx8cv42obi4f" path="res://World/UI/Elements/Counter/Bytes_Counter.tscn" id="1_t0gwl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dlrhe28j4ukp3" path="res://World/UI/Elements/Shop/ammo_shop.tscn" id="6_5fvso"]
 [ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="7_ekc3t"]
 [ext_resource type="Texture2D" uid="uid://c6xr7twvwmhn2" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Textfield_01.png" id="8_na46i"]
+[ext_resource type="Script" path="res://World/UI/Elements/Shop/ammo_shop.gd" id="8_ts5sq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2r4e"]
 atlas = ExtResource("7_ekc3t")
@@ -117,6 +118,7 @@ layout_mode = 2
 
 [node name="Ammo Shop" parent="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox" instance=ExtResource("6_5fvso")]
 layout_mode = 2
+script = ExtResource("8_ts5sq")
 
 [node name="Merchant Vbox" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Section Seperator"]
 layout_mode = 2
@@ -182,4 +184,6 @@ layout_mode = 2
 text = "Leave
 "
 
+[connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Heal Shop" to="." method="_on_heal_shop_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop" to="." method="_on_ammo_shop_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/Leave" to="." method="_on_leave_pressed"]

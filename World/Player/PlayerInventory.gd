@@ -5,7 +5,7 @@ var inventory = {
 }
 
 var max_weapon = 2
-var weapon = ["dot", "lance"]
+var weapon = ["datathrower", "lance"]
 
 var max_lore = 3
 var lore = {
@@ -27,7 +27,7 @@ func add_item(item_name):
 				"Crit Damage UP":
 					stats.critDamage += 0.20
 				"Processor Boost":
-					stats.firerate *= 1.1
+					stats.fireRate *= 1.1
 				"Projectile Pierce":
 					stats.pierce += 1
 				"Knock-Down":
@@ -37,7 +37,7 @@ func add_item(item_name):
 				"Data GET+":
 					stats.bonusdata += 0.5
 				"Speedster":
-					stats.firerate *= 1.25
+					stats.fireRate *= 1.25
 					movestats.speed *= 1.5
 				"Overclock":
 					stats.maxhealth *= 0.9
@@ -45,10 +45,10 @@ func add_item(item_name):
 					stats.ram = stats.maxram
 				"Cannon-Ball":
 					stats.knockback += 2
-					stats.firerate *= 0.9
+					stats.fireRate *= 0.9
 					stats.getKnockback = true
 				"Sniper":
-					stats.firerate *= 0.75
+					stats.fireRate *= 0.75
 					stats.critChance += 0.25
 					stats.critDamage += 0.5
 				"Eagle Eyes":
@@ -66,7 +66,7 @@ func add_item(item_name):
 					stats.damage *= 2
 				"Turtle":
 					movestats.speed *= 0.5
-					stats.hp *= 2
+					stats.health *= 2
 				"Precision Shooter":
 					stats.critChance += 1
 					stats.firerate *= 0.3
@@ -74,12 +74,14 @@ func add_item(item_name):
 						stats.critDamage += stats.critChance - 1
 						stats.critChance = 1
 			inventory[i] = [item_name]
+			
 			return
 
 func add_weapon(item_name):
 	for i in range(max_weapon):
 		if weapon.has(i) == false:
 			weapon[i] = [item_name]
+			print("Got " + item_name)
 			return
 			
 func add_lore(item_name):

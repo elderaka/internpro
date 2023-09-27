@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbs3imbc3o6d8"]
+[gd_scene load_steps=6 format=3 uid="uid://dbs3imbc3o6d8"]
 
 [ext_resource type="Theme" uid="uid://ba0mnjxe2p7tf" path="res://World/UI/Elements/SkillSelection/selection.tres" id="1_ev23y"]
+[ext_resource type="Script" path="res://World/UI/Elements/ItemSelection/itemSelect.gd" id="2_5re7q"]
 [ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_m5bmw"]
 [ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_dicdd"]
 
@@ -13,6 +14,7 @@ custom_minimum_size = Vector2(70, 96)
 offset_right = 72.0
 offset_bottom = 96.0
 theme = ExtResource("1_ev23y")
+script = ExtResource("2_5re7q")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

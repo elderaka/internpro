@@ -3,20 +3,24 @@ extends Node2D
 signal level_finished
 
 @onready var reward_selection = %"Reward Selection"
-@onready var reward = %Reward
+@onready var reward = %"Reward/Reward Selection"
 
 var getReward = false
+var finished = false
 func _ready():
 	reward_selection.connect("item_picked", picked_item)
 
 func _physics_process(delta):
-	if get_tree().get_nodes_in_group("enemy").is_empty():
+	if get_tree().get_nodes_in_group("enemy").is_empty() and !finished:
+		finished = true
 		levelFinished()
 
 func levelFinished():
 	if not get_tree().paused:
 		pause()
 	reward.visible = true
+	reward.getreward =  true
+	print("Finished")
 
 func pause():
 	var newPausedState = not get_tree().paused

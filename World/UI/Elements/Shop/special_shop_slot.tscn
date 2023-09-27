@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddvoao3slwghp"]
+[gd_scene load_steps=4 format=3 uid="uid://ddvoao3slwghp"]
 
 [ext_resource type="PackedScene" uid="uid://bbwuh1phvopen" path="res://World/UI/Elements/Shop/special_slot.tscn" id="1_030qm"]
+[ext_resource type="Script" path="res://World/UI/Elements/Shop/special_shop_slot.gd" id="1_sgxpl"]
 [ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_gg5ud"]
 
 [node name="Special Shop Slot" type="VBoxContainer"]
 offset_right = 32.0
 offset_bottom = 48.0
 theme_override_constants/separation = 0
+script = ExtResource("1_sgxpl")
 
 [node name="Special Slot" parent="." instance=ExtResource("1_030qm")]
 layout_mode = 2
