@@ -57,7 +57,7 @@ func add_item(item_name):
 					stats.knockback += 1
 				"Mayhem":
 					stats.fireRate *= 2.5
-					stats.critRate = 0
+					stats.critDamage = 0
 					stats.critChance = 0
 				"Berserker":
 					stats.isBerserker = true

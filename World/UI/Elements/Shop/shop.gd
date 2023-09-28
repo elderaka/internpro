@@ -3,7 +3,7 @@ extends MarginContainer
 signal level_finished
 
 @onready var bytes = %Bytes
-var stats = load("res://World/Player/DefaultPlayerStats.tres")
+@onready var stats = load("res://World/Player/DefaultPlayerStats.tres")
 @onready var slot1 = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer"
 @onready var slot2 = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer2"
 @onready var slot3 = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Special Vbox"
@@ -11,7 +11,7 @@ var stats = load("res://World/Player/DefaultPlayerStats.tres")
 @onready var ammo = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop"
 
 func _ready():
-	bytes._on_in_game_ui_byte_changed(PlayerAutoload.bytes)
+	
 	initialize_item()
 	merchant_text()
 
@@ -100,10 +100,10 @@ func _on_leave_pressed():
 
 func _on_heal_shop_pressed():
 	stats.health = stats.maxhealth
-	stats.bytes -= heal.price
+	stats.bytes -= heal.prices
 	leave()
 
 func _on_ammo_shop_pressed():
-	stats.healramth = stats.maxram
+	stats.ram = stats.maxram
 	stats.bytes -= heal.price
 	leave()

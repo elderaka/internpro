@@ -19,3 +19,5 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_nna2s")
 text = "Price
 "
+
+[connection signal="pressed" from="Item Slot" to="." method="_on_item_slot_pressed"]
