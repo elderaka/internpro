@@ -10,9 +10,11 @@ signal healt_change(value, max_health)
 @onready var spread_shot = $SpreadShot
 @onready var circle_shot_timer = $CircleShotTimer
 @onready var animation_tree = $AnimationTree
+@onready var collision_shape_2d = $CollisionShape2D
 
 @export var health = 100
 @export var max_health = health
+@export var fight = false
 
 var points : Array
 var curPoint
@@ -99,12 +101,19 @@ func take_damage(damage, isCrit):
 	if ((not firstDeath) and health <=0):
 		print("Test")
 		set_state_condition("FirstDeath", true)
+		collision_shape_2d.disabled
 		firstDeath = true
-	elif firstDeath and health <= 0:
+	elif firstDeath and health <= 0 and fight:
 		print("lastDeath")
 		set_state_condition("FinalDeath", true)
 
 func update_health():
-	health += 334
+	health += (renStats.health /20)
+	if health > max_health:
+		health = max_health
 	emit_signal("healt_change", health, max_health)
 
+
+
+func _on_animation_tree_animation_started(anim_name):
+	print(anim_name)

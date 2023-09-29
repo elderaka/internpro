@@ -10,7 +10,9 @@ func _ready():
 		if child is Sound_Queue:
 			_sounds.append(child)
 
-func PlayRandomSound():
-	var index = _random.randi_range(0, _sounds.size()-1)
+func PlayRandomSound(ding : bool):
+	var index = _random.randi_range(0, _sounds.size()-2)
+	if ding:
+		index = 3
 	_lastIndex = index
 	_sounds[index].PlaySound()

@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://qckyp112o2qg" path="res://World/UI/Elements/Buttons/DefaultNormalButton.tres" id="1_cpxly"]
 [ext_resource type="StyleBox" uid="uid://bm7jy085t1i6j" path="res://World/UI/Elements/Buttons/DefaultFocus.tres" id="1_dky2q"]
-[ext_resource type="FontFile" path="res://World/UI/Elements/DefFont.tres" id="1_kntua"]
+[ext_resource type="FontFile" uid="uid://jp2uni7a4h56" path="res://World/UI/Elements/DefFont.tres" id="1_kntua"]
 [ext_resource type="StyleBox" uid="uid://rlvb22di7xjq" path="res://World/UI/Elements/Buttons/DefaultPressedButton.tres" id="2_ef38g"]
 
 [sub_resource type="FontVariation" id="FontVariation_1t6j4"]

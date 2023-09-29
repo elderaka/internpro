@@ -7,10 +7,8 @@ signal game_finished
 @onready var reward = %Reward
 @onready var bullet_manager = %BulletManager
 @onready var dead = $Dead
-
-var getReward = false
-
-@onready var reward = %"Reward/Reward Selection"
+@onready var sound_queue_victory = $Sound_QueueVictory
+@onready var sound_queue_defeat = $Sound_QueueDefeat
 
 var getReward = false
 var finished = false
@@ -31,13 +29,15 @@ func levelFinished():
 	if not get_tree().paused:
 		pause()
 	print("real")
-	reward.visible = true
-	reward.getreward =  true
+	sound_queue_victory.PlaySound()
+	reward_selection.visible = true
+	reward_selection.getreward =  true
 	print("Finished")
 
 func player_died():
 	if not get_tree().paused:
 		pause()
+	sound_queue_defeat.PlaySound()
 	dead.visible = true
 	
 

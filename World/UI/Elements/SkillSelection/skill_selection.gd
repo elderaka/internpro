@@ -11,9 +11,9 @@ func _ready():
 		node.connect("start", _on_skill_start)
 
 func _on_button_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	emit_signal("back")
 
 func _on_skill_start():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(true)
 	emit_signal("play")

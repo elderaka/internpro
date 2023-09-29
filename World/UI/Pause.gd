@@ -14,20 +14,20 @@ func pause():
 	visible = newPausedState
 
 func _on_resume_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	pause()
 
 
 func _on_storage_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 
 
 func _on_option_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 
 
 func _on_exit_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	pause()
 	emit_signal("exited")
 

@@ -11,13 +11,6 @@ layer_0/tile_data = PackedInt32Array(589822, 196608, 1, 524286, 131072, 2, 45875
 [node name="Player" parent="." index="4"]
 position = Vector2(0, 0)
 
-[node name="Reward" parent="." index="2"]
-visible = true
-
-[node name="Reward Selection" parent="Reward" index="0"]
-visible = false
-
-
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_uyfv4")]
 position = Vector2(40, 112)
 

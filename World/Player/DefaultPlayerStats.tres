@@ -8,9 +8,7 @@ health = 100
 maxhealth = 100
 ram = 100
 maxram = 100
-
 damage = 2000
-
 fireRate = 1.0
 critChance = 0.2
 critDamage = 1.5
@@ -19,9 +17,7 @@ knockback = 1.0
 lifesteal = 0.0
 weapon = "dot"
 bonusdata = 1.0
-
 bytes = 100
-
 weapon_slot = ["dot", "lance"]
 getKnockback = false
 viewBar = false

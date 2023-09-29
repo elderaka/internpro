@@ -22,6 +22,7 @@ PlayerAutoload="*res://World/Player/player_autoload.gd"
 ButtonSoundPool="*res://music/sfx/Button/button_sound_pool.tscn"
 JsonData="*res://World/Items/JSONData.gd"
 PlayerStats="*res://World/Player/DefaultPlayerStats.tres"
+SceneTransition="*res://World/UI/scene_transition.tscn"
 
 [display]
 
