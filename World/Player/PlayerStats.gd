@@ -11,7 +11,7 @@ extends Resource
 @export var critDamage = 1.5
 @export var pierce = 0
 @export var knockback = 1.0
-@export var lifeSteal = 0.0
+@export var lifesteal = 0.0
 @export var weapon = "dot"
 @export var bonusdata = 1.0
 @export var bytes = 0

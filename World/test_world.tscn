@@ -32,8 +32,8 @@ stats = ExtResource("4_gyxvw")
 [node name="UI" parent="." instance=ExtResource("5_ao3mr")]
 
 [node name="Reward" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Reward Selection" parent="Reward" instance=ExtResource("7_wcels")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8hewfamunbfe"]
+[gd_scene load_steps=4 format=3 uid="uid://b8hewfamunbfe"]
 
+[ext_resource type="Script" path="res://World/UI/Elements/Shop/shop_slot.gd" id="1_6p6m8"]
 [ext_resource type="PackedScene" uid="uid://xomvciu04pwc" path="res://World/UI/Elements/Shop/item_slot.tscn" id="1_slh5h"]
 [ext_resource type="FontVariation" uid="uid://babxdxda6jrtk" path="res://World/UI/Elements/DefaultFont.tres" id="2_nna2s"]
 
@@ -7,6 +8,7 @@
 offset_right = 32.0
 offset_bottom = 48.0
 theme_override_constants/separation = 0
+script = ExtResource("1_6p6m8")
 
 [node name="Item Slot" parent="." instance=ExtResource("1_slh5h")]
 layout_mode = 2
@@ -17,3 +19,5 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_nna2s")
 text = "Price
 "
+
+[connection signal="pressed" from="Item Slot" to="." method="_on_item_slot_pressed"]

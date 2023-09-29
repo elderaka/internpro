@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapon_Statistic" load_steps=2 format=3 uid="uid://cb7s6pdhs0jxd"]
+
+[ext_resource type="Script" path="res://World/Weapon/WeaponStats.gd" id="1_t681p"]
+
+[resource]
+script = ExtResource("1_t681p")
+damage_multiplier = 0.4
+name = "spread"
+sprite = "dot"

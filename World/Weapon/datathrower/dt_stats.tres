@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_di23u")
 damage_multiplier = 0.05
-name = "lance"
+name = "datathrower"
 sprite = ""

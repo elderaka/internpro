@@ -10,6 +10,11 @@ signal game_finished
 
 var getReward = false
 
+@onready var reward = %"Reward/Reward Selection"
+
+var getReward = false
+var finished = false
+
 func _ready():
 	reward_selection.connect("item_picked", picked_item)
 	#for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -18,7 +23,8 @@ func _ready():
 	#	player.connect("player_shoot", Callable(bullet_manager, "handle_bullet_spawn"))
 
 func _physics_process(delta):
-	if get_tree().get_nodes_in_group("enemy").is_empty():
+	if get_tree().get_nodes_in_group("enemy").is_empty() and !finished:
+		finished = true
 		levelFinished()
 
 func levelFinished():
@@ -26,6 +32,8 @@ func levelFinished():
 		pause()
 	print("real")
 	reward.visible = true
+	reward.getreward =  true
+	print("Finished")
 
 func player_died():
 	if not get_tree().paused:
