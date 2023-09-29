@@ -10,12 +10,15 @@ extends Node2D
 @export var fightRooms : Array[Random_Item]
 
 func finished_a_level():
+	SceneTransition.fade_to_black()
 	levels.hide()
 	map.show()
 	map.get_child(0).update()
+	SceneTransition.fade_from_black()
 
 func open_room(room, roomType):
 	print("room opened", roomType)
+	SceneTransition.fade_to_black()
 	var level
 	if roomType == "Fight":
 		var levelPicker = Random_Picker.new()
@@ -32,10 +35,12 @@ func open_room(room, roomType):
 	level.connect("level_finished", finished_a_level)
 	level.connect("game_finished", _on_pause_exit_to_main)
 	map.hide()
+	SceneTransition.fade_from_black()
 	
 
 func _on_pause_exit_to_main():
 	print("exit to main")
+	SceneTransition.fade_to_black()
 	var menu = mainMenu.instantiate()
 	var pause = $Pause
 	add_child(menu)
@@ -47,6 +52,7 @@ func _on_pause_exit_to_main():
 	pause.queue_free()
 	if get_tree().paused:
 		pause()
+	SceneTransition.fade_from_black()
 	get_tree().reload_current_scene()
 
 func pause():

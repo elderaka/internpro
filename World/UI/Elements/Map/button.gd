@@ -39,7 +39,7 @@ func _draw():
 		draw_line(normal * margin, line, color, 1, true)
 
 func _on_button_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	print("room picked")
 	for child in children:
 		child.button.disabled = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvf8qgf3lp6tl"]
+[gd_scene load_steps=11 format=3 uid="uid://bvf8qgf3lp6tl"]
 
 [ext_resource type="PackedScene" uid="uid://dtrb7p7gkbca6" path="res://World/Levels/dirt_auto_tile.tscn" id="1_cqgn7"]
 [ext_resource type="Script" path="res://World/Levels/level.gd" id="1_ud13f"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dcbo2t0hstdgw" path="res://World/Player/player.tscn" id="4_gm7gw"]
 [ext_resource type="PackedScene" uid="uid://ccrloldahq1qi" path="res://World/UI/Elements/SkillSelection/finished_game.tscn" id="4_nm5xq"]
 [ext_resource type="Script" path="res://World/Levels/BulletManager.gd" id="6_pi5fs"]
+[ext_resource type="Script" path="res://music/AudioPlayer/SoundQueue.gd" id="8_0180t"]
+[ext_resource type="AudioStream" uid="uid://7h6epmioclon" path="res://music/sfx/victory2.mp3" id="9_gk41n"]
+[ext_resource type="AudioStream" uid="uid://rq1qlatj617t" path="res://music/sfx/defeat_deaddd.mp3" id="10_fpg51"]
 
 [node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_ud13f")
@@ -22,11 +25,11 @@ visible = false
 
 [node name="Reward" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Reward Selection" parent="Reward" instance=ExtResource("3_81fc8")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("4_gm7gw")]
 
@@ -36,6 +39,18 @@ unique_name_in_owner = true
 [node name="BulletManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_pi5fs")
+
+[node name="Sound_QueueVictory" type="Node" parent="."]
+script = ExtResource("8_0180t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound_QueueVictory"]
+stream = ExtResource("9_gk41n")
+
+[node name="Sound_QueueDefeat" type="Node" parent="."]
+script = ExtResource("8_0180t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound_QueueDefeat"]
+stream = ExtResource("10_fpg51")
 
 [connection signal="game_finished" from="Dead/Finished Game" to="." method="_on_finished_game_game_finished"]
 [connection signal="player_dies" from="Player" to="." method="player_died"]

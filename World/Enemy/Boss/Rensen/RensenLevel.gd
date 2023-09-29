@@ -1,5 +1,7 @@
 extends "res://World/Levels/level.gd"
 
+@onready var finished_game = $"Reward/Finished Game"
+
 func _ready():
 	reward_selection.connect("item_picked", picked_item)
 	for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -9,7 +11,8 @@ func _ready():
 func levelFinished():
 	if not get_tree().paused:
 		pause()
-	reward.visible = true
+	sound_queue_victory.PlaySound()
+	finished_game.visible = true
 
 
 func _on_finished_game_game_finished():

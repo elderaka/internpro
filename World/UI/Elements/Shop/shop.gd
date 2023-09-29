@@ -16,7 +16,7 @@ func _ready():
 	merchant_text()
 
 func leave():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	emit_signal("level_finished")
 	queue_free()
 	

@@ -8,6 +8,6 @@ func _ready():
 	bytes._on_in_game_ui_byte_changed(PlayerAutoload.bytes)
 
 func _on_leave_pressed():
-	ButtonSoundPool.PlayRandomSound()
+	ButtonSoundPool.PlayRandomSound(false)
 	emit_signal("level_finished")
 	queue_free()
