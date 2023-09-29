@@ -71,7 +71,6 @@ position = Vector2(-96, 88)
 
 [node name="Rensen" parent="Enemies" index="0" instance=ExtResource("2_l0obx")]
 position = Vector2(168, 8)
-health = 100
 
 [connection signal="game_finished" from="Reward/Finished Game" to="." method="_on_finished_game_game_finished"]
 [connection signal="send_points" from="Points" to="Enemies/Rensen" method="get_points"]
