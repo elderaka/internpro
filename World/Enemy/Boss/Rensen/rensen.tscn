@@ -857,7 +857,6 @@ script = ExtResource("1_eredk")
 renStats = ExtResource("2_ngyl8")
 renMovement = ExtResource("3_gbs3j")
 bullet = ExtResource("4_kgheo")
-health = 0
 
 [node name="Effect" type="Node2D" parent="."]
 
@@ -906,7 +905,7 @@ shape = SubResource("RectangleShape2D_8fv4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.383162, 0.383162)
+scale = Vector2(0.422484, 0.422484)
 texture = ExtResource("1_aqn3d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
