@@ -27,9 +27,7 @@ func _get_configuration_warnings():
 		return "Expected first child to be an AudioStramPlayer."
 
 func PlaySound():
-	print("played")
 	if not _audioStreamPlayers[_next].playing:
-		print("ids")
 		_audioStreamPlayers[_next].play()
 		_next += 1
 		_next %= _audioStreamPlayers.size()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerMovementData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PlayerMovementData" load_steps=2 format=3 uid="uid://cgl7mel6qj5d6"]
 
 [ext_resource type="Script" path="res://World/Player/PlayerMovementData.gd" id="1_c05sj"]
 

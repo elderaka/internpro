@@ -6,7 +6,7 @@ extends Area2D
 @export var multiplier = 1
 @export var critChance = 0.0
 @export var critDamage = 0.0
-@export var pierce = 2
+@export var pierce = 1
 @export var force = 1
 @export var isCrit = false
 @export var animation = ""
@@ -21,13 +21,16 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("enemy"):
+	var check = body.get_groups() == []
+	if (not body.is_in_group(self.get_groups()[0]) and (not body.is_in_group("level")) and (not check)):
 		var crit = critical()
 		body.take_damage(crit.damage,crit.isCrit)
 		if pierce > 0:
 			pierce -= 1
 		else:
 			queue_free()
+	elif body.is_in_group("level"):
+		queue_free()
 	else:
 		queue_free()
 

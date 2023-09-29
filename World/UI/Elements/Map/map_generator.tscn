@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnx0pcx5lxvou"]
+
+[ext_resource type="Script" path="res://World/UI/Elements/Map/MapCtrl.gd" id="1_ts3k5"]
+[ext_resource type="Resource" uid="uid://lo4n3c6u03pa" path="res://World/UI/Elements/RandomPicker/RandRoom/Fight.tres" id="2_o8hdt"]
+[ext_resource type="Resource" uid="uid://ccwfjh6y661nf" path="res://World/UI/Elements/RandomPicker/RandRoom/Story.tres" id="3_km5vs"]
+[ext_resource type="Resource" uid="uid://c4qjh55a8pe5x" path="res://World/UI/Elements/RandomPicker/RandRoom/Shop.tres" id="4_5mehr"]
+[ext_resource type="Resource" uid="uid://b3rhf35nu4gwb" path="res://World/UI/Elements/RandomPicker/RandRoom/Chest.tres" id="5_3oj2l"]
+
+[node name="MapGenerator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ts3k5")
+rooms = Array[Resource("res://World/UI/Elements/RandomPicker/random_item.gd")]([ExtResource("2_o8hdt"), ExtResource("3_km5vs"), ExtResource("4_5mehr"), ExtResource("5_3oj2l")])

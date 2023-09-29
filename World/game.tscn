@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpuaiqqnsv1h1"]
+[gd_scene load_steps=10 format=3 uid="uid://cpuaiqqnsv1h1"]
 
 [ext_resource type="Script" path="res://World/game.gd" id="1_1bg0d"]
 [ext_resource type="PackedScene" uid="uid://d3bladx8rdy6f" path="res://World/UI/menu.tscn" id="1_3gtja"]
 [ext_resource type="Resource" uid="uid://bul3fueyvdqtw" path="res://World/Levels/Map/LevelPicker/level_1.tres" id="2_kjmfr"]
-[ext_resource type="PackedScene" uid="uid://calfl1ylqbcf4" path="res://World/UI/Elements/Map/map.tscn" id="3_0xpt0"]
 [ext_resource type="Resource" uid="uid://ka5fwjlu4s1" path="res://World/Levels/Map/LevelPicker/level_2.tres" id="3_44uu6"]
 [ext_resource type="Resource" uid="uid://dr0dgl3p4o0ui" path="res://World/Levels/Map/LevelPicker/level_3.tres" id="4_8qyd1"]
 [ext_resource type="Resource" uid="uid://cs78b88x8pnq8" path="res://World/Levels/Map/LevelPicker/level_4.tres" id="5_p2t5f"]
@@ -26,8 +25,6 @@ autoplay = true
 [node name="Map" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
-
-[node name="Map" parent="Map" instance=ExtResource("3_0xpt0")]
 
 [node name="Level" type="CanvasLayer" parent="."]
 visible = false

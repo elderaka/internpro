@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccyr2sn6gmj0n"]
+
+[ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_fc3wv"]
+[ext_resource type="PackedScene" uid="uid://de48uax7gqj87" path="res://World/Enemy/Boss/Rensen/RensenLevel.tscn" id="2_db42j"]
+[ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="3_vckvj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfix3"]
+atlas = ExtResource("3_vckvj")
+region = Rect2(464, 152, 16, 16)
+
+[node name="RensenRoom" instance=ExtResource("1_fc3wv")]
+room = ExtResource("2_db42j")
+roomType = "Boss"
+
+[node name="Button" parent="." index="0"]
+icon = SubResource("AtlasTexture_gfix3")

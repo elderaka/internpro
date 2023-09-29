@@ -1,6 +1,7 @@
 extends Control
 
 signal picked_room(room, type)
+signal refreshMap
 
 const plane_x = 10
 const plane_y = 5
@@ -41,14 +42,14 @@ func _ready():
 	for child in get_children():
 		for grandchild in child.children:
 			if grandchild.point.x <= child.point.x:
-				get_tree().reload_current_scene()
+				emit_signal("refreshMap")
 				print("refreshed")
 		if child.point.x == 5:
 			is_chest_room = true
 			midRoomCount += 1
 	
 	if not is_chest_room or midRoomCount <= 1:
-		get_tree().reload_current_scene()
+		emit_signal("refreshMap")
 		print("refreshed")
 	
 	get_child(0)._on_button_pressed()
@@ -64,7 +65,7 @@ func random_room(point):
 	if point.x == 5:
 		picked = "res://World/UI/Elements/Map/chest_room.tscn"
 	elif point.x == 10:
-		picked = "res://World/UI/Elements/Map/fight_room.tscn"
+		picked = "res://World/UI/Elements/Map/rensen_room.tscn"
 	elif point.x > 0:
 		picked = randomRoomPicker.pick_random_item(rooms)
 	return picked

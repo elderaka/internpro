@@ -59,4 +59,4 @@ func take_damage(damage, isCrit):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("player"):
 		print(stats.damage)
-		body.take_damage(stats.damage)
+		body.take_damage(stats.damage, false)

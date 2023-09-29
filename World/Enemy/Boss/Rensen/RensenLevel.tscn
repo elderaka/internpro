@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://de48uax7gqj87"]
+
+[ext_resource type="PackedScene" uid="uid://bvf8qgf3lp6tl" path="res://World/Levels/level.tscn" id="1_pb3yb"]
+[ext_resource type="Script" path="res://World/Enemy/Boss/Rensen/RensenLevel.gd" id="2_43qgn"]
+[ext_resource type="PackedScene" uid="uid://db3yka1uocyly" path="res://World/UI/Elements/Bar/boss_health.tscn" id="2_kcw0r"]
+[ext_resource type="PackedScene" uid="uid://ba4pilfmeuhu1" path="res://World/Enemy/Boss/Rensen/rensen.tscn" id="2_l0obx"]
+[ext_resource type="PackedScene" uid="uid://ccrloldahq1qi" path="res://World/UI/Elements/SkillSelection/finished_game.tscn" id="4_b600f"]
+
+[sub_resource type="GDScript" id="GDScript_b0hkc"]
+script/source = "extends CanvasLayer
+
+@onready var boss_health = $BossHealth
+@onready var rensen = $\"../Enemies/Rensen\"
+
+func _ready():
+	rensen.connect(\"healt_change\", _on_rense_health_change)
+
+func _on_rense_health_change(value, max_health):
+	var bar = boss_health.get_child(1)
+	bar.max_value = max_health
+	bar.value = value
+"
+
+[sub_resource type="GDScript" id="GDScript_4q7t2"]
+script/source = "extends Node2D
+
+signal send_points(Array)
+@onready var rensen = $\"../Enemies/Rensen\"
+
+func _ready():
+	var arr = get_children()
+	rensen.get_points(arr)
+"
+
+[node name="Level" instance=ExtResource("1_pb3yb")]
+script = ExtResource("2_43qgn")
+
+[node name="DirtAutoTile" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(-1, 327680, 1, 65535, 327680, 1, 131071, 327680, 1, 196607, 327680, 1, 262143, 327680, 1, 327679, 327680, 1, 393215, 327680, 1, 458751, 327680, 1, 524287, 327680, 1, 589823, 327680, 1, 655359, 327680, 1, 720895, 327680, 1, 786431, 327680, 1, 851967, 393216, 1, 786432, 65536, 3, 786433, 65536, 3, 786434, 65536, 3, 786435, 65536, 3, 786436, 65536, 3, 786437, 65536, 3, 786438, 65536, 3, 786439, 65536, 3, 786440, 65536, 3, 786441, 65536, 3, 786442, 65536, 3, 786443, 65536, 3, 786444, 65536, 3, 786445, 65536, 3, 786446, 65536, 3, 786447, 65536, 3, 786448, 65536, 3, 786449, 65536, 3, 786450, 65536, 3, 786451, 65536, 3, 786452, 458752, 1, 720916, 327680, 1, 655380, 327680, 1, 589844, 327680, 1, 524308, 327680, 1, 458772, 327680, 1, 393236, 327680, 1, 327700, 327680, 1, 131092, 327680, 1, 65556, 327680, 1, 20, 327680, 1, 196628, 327680, 1, 262164, 327680, 1, -65516, 327680, 1, -131052, 327680, 1, -196588, 458752, 0, -196589, 65536, 3, -196590, 65536, 3, -196591, 65536, 3, -196592, 65536, 3, -196593, 65536, 3, -196594, 65536, 3, -196595, 65536, 3, -196596, 65536, 3, -196597, 65536, 3, -196598, 65536, 3, -196599, 65536, 3, -196600, 65536, 3, -196601, 65536, 3, -196602, 65536, 3, -196603, 65536, 3, -196604, 65536, 3, -196605, 65536, 3, -196606, 65536, 3, -196607, 65536, 3, -196608, 65536, 3, -131073, 393216, 0, -65537, 327680, 1, 589826, 196618, 1, 589827, 262154, 1, 589828, 262154, 1, 589829, 327690, 1, 589838, 196618, 1, 589839, 262154, 1, 589840, 262154, 1, 589841, 327690, 1, 458760, 196618, 1, 458761, 262154, 1, 458762, 262154, 1, 458763, 262154, 1, 458764, 327690, 1, 327686, 327690, 1, 327685, 262154, 1, 327684, 196618, 1, 327694, 196618, 1, 327695, 262154, 1, 327696, 327690, 1)
+
+[node name="BossHealth" type="CanvasLayer" parent="." index="2"]
+script = SubResource("GDScript_b0hkc")
+
+[node name="BossHealth" parent="BossHealth" index="0" instance=ExtResource("2_kcw0r")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 4.0
+offset_right = 55.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Reward Selection" parent="Reward" index="0"]
+visible = false
+
+[node name="Finished Game" parent="Reward" index="1" instance=ExtResource("4_b600f")]
+
+[node name="Player" parent="." index="5"]
+position = Vector2(16, 176)
+
+[node name="Points" type="Node2D" parent="." index="6"]
+position = Vector2(168, 16)
+script = SubResource("GDScript_4q7t2")
+
+[node name="Top" type="Marker2D" parent="Points" index="0"]
+
+[node name="Left" type="Marker2D" parent="Points" index="1"]
+position = Vector2(96, 88)
+
+[node name="Right" type="Marker2D" parent="Points" index="2"]
+position = Vector2(-96, 88)
+
+[node name="Rensen" parent="Enemies" index="0" instance=ExtResource("2_l0obx")]
+position = Vector2(168, 8)
+health = 10
+
+[connection signal="game_finished" from="Reward/Finished Game" to="." method="_on_finished_game_game_finished"]
+[connection signal="send_points" from="Points" to="Enemies/Rensen" method="get_points"]
+
+[editable path="BossHealth/BossHealth"]
