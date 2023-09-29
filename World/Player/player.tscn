@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://World/Player/player.gd" id="1_aa5cq"]
 [ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_jalrq"]
-[ext_resource type="Resource" path="res://World/Player/DefaultPlayerMovement.tres" id="2_davsx"]
+[ext_resource type="Resource" uid="uid://cgl7mel6qj5d6" path="res://World/Player/DefaultPlayerMovement.tres" id="2_davsx"]
 [ext_resource type="Resource" uid="uid://dk7c2xl2gvw73" path="res://World/Player/DefaultPlayerStats.tres" id="3_7ukfu"]
-[ext_resource type="PackedScene" uid="uid://c80ukt624641l" path="res://World/Weapon/projectile.tscn" id="4_cfmpf"]
+[ext_resource type="PackedScene" uid="uid://bq3nsvtn3mc5w" path="res://World/Weapon/player_projectile.tscn" id="4_kv7yu"]
 [ext_resource type="Script" path="res://World/Player/Inventory/Inventory_UI.gd" id="6_673pg"]
 [ext_resource type="PackedScene" uid="uid://c4lgtxaxdh8dr" path="res://World/Player/Inventory/inventory.tscn" id="7_4cn2a"]
 [ext_resource type="PackedScene" uid="uid://buvvvqgxapmua" path="res://music/AudioPlayer/sound_queue.tscn" id="8_7yvin"]
@@ -25,7 +25,7 @@ floor_snap_length = 3.0
 script = ExtResource("1_aa5cq")
 movement_data = ExtResource("2_davsx")
 stats = ExtResource("3_7ukfu")
-Bullet = ExtResource("4_cfmpf")
+Bullet = ExtResource("4_kv7yu")
 
 [node name="dtDespawn" type="Area2D" parent="."]
 position = Vector2(0, 8)

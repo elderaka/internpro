@@ -7,6 +7,7 @@ signal send_room(room, roomType)
 
 @export var room: PackedScene
 @export var roomType: String
+@export var finished = false
 
 var children: Array = []
 var circleColor = Color.GHOST_WHITE
@@ -42,8 +43,9 @@ func _on_button_pressed():
 	print("room picked")
 	for child in children:
 		child.button.disabled = false
+		child.finished = true
 	button.disabled = true
+	finished = true
 	emit_signal("room_picked", self)
-	print(room)
 	emit_signal("send_room", room, roomType)
 	

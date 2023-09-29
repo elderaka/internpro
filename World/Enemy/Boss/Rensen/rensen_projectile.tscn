@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0le0qnpwy8f2"]
+
+[ext_resource type="PackedScene" uid="uid://c80ukt624641l" path="res://World/Weapon/projectile.tscn" id="1_bkhlk"]
+
+[node name="RensenProjectile" groups=["enemy"] instance=ExtResource("1_bkhlk")]
+collision_mask = 3
+speed = 150
+damage = 2
+pierce = 0
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+self_modulate = Color(0.996078, 0, 0.101961, 1)
+
+[node name="GPUParticles2D" parent="." index="3"]
+visible = false

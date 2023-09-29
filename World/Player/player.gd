@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal health_change(health, max_health)
 signal byte_change(value)
 signal weapon_change(weapon)
+signal player_dies
 
 @export var movement_data : PlayerMovementData
 @export var stats : Player_Statistic
@@ -24,7 +25,7 @@ var weapon_slot = PlayerInventory.weapon
 var weapon_pos = 0
 func _ready():
 	weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
-	
+
 func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
@@ -71,7 +72,8 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("add_item"):
 		print("Full")
 	if stats.health <= 0:
-		restart_application()
+		emit_signal("player_dies")
+		queue_free()
 
 func apply_gravity(delta):
 	if not is_on_floor():
@@ -152,13 +154,13 @@ func spawnBullet():
 	b.speed = 0
 
 func aim():
-	var b = $Projectile
-	b.weapon_stats = weapon_used 
+	var b = $PlayerProjectile
+	b.weapon_stats = weapon_used
 	b.animation = weapon_used.sprite
 	b.transform = marker_2d.transform
 
 func shoot():
-	var b = $Projectile
+	var b = $PlayerProjectile
 	remove_child(b)
 	owner.add_child(b)
 	b.speed = 300
@@ -170,7 +172,7 @@ func shoot():
 	b.transform = marker_2d.transform
 	b.global_position = muzzle.global_position
 
-func take_damage(damage):
+func take_damage(damage, isCrit):
 	stats.health -= damage
 	emit_signal("health_change", stats.health, stats.maxhealth)
 	

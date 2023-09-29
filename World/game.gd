@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var map2 = $Map/Map
+#@onready var map2 = $Map/Map
 @onready var levels = $Level
 @onready var mainMenu = load("res://World/UI/menu.tscn")
 @onready var pauseFile = preload("res://World/UI/pause.tscn")
@@ -9,42 +9,56 @@ extends Node2D
 
 @export var fightRooms : Array[Random_Item]
 
-func _ready():
-	map2.connect("picked_room", open_room)
-
 func finished_a_level():
 	levels.hide()
 	map.show()
-	map2.update()
+	map.get_child(0).update()
 
 func open_room(room, roomType):
+	print("room opened", roomType)
 	var level
 	if roomType == "Fight":
 		var levelPicker = Random_Picker.new()
 		var picked = load(levelPicker.pick_random_item(fightRooms))
 		level = picked.instantiate()
 		add_child(level)
+	elif roomType == "Boss":
+		level = room.instantiate()
+		add_child(level)
 	else:
 		level = room.instantiate()
 		levels.add_child(level)
 		levels.show()
 	level.connect("level_finished", finished_a_level)
+	level.connect("game_finished", _on_pause_exit_to_main)
 	map.hide()
+	
 
 func _on_pause_exit_to_main():
+	print("exit to main")
 	var menu = mainMenu.instantiate()
+	var pause = $Pause
 	add_child(menu)
 	menu.connect("game_start", _on_menu_game_start)
 	menu.connect("open_room", open_room)
 	if not get_tree().get_nodes_in_group("level").is_empty():
 		get_tree().get_nodes_in_group("level")[0].queue_free()
 	map.get_child(0).queue_free()
-	var newMap = mapReload.instantiate()
-	add_child(newMap)
-	
+	pause.queue_free()
+	if get_tree().paused:
+		pause()
+	get_tree().reload_current_scene()
 
+func pause():
+	var newPausedState = not get_tree().paused
+	get_tree().paused = newPausedState
 
 func _on_menu_game_start():
+	print("game start")
 	var pause = pauseFile.instantiate()
 	add_child(pause)
 	pause.connect("exit_to_main", _on_pause_exit_to_main)
+	
+	var newMap = mapReload.instantiate()
+	newMap.connect("picked_room", open_room)
+	map.add_child(newMap)
