@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bxc3mpxgxsr7k"]
 
-[ext_resource type="Texture2D" uid="uid://btjjp7aj6y4ng" path="res://World/Levels/DirtAutoTile.png" id="1_ysjxy"]
+[ext_resource type="Texture2D" uid="uid://6igfga78f6hw" path="res://World/Levels/a_tile_set.png" id="1_bjbjn"]
 [ext_resource type="Texture2D" uid="uid://cixkxdv3jbbwd" path="res://World/Levels/autumn_64.png" id="2_b8k5a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_762s8"]
 resource_name = "Dirt"
-texture = ExtResource("1_ysjxy")
+texture = ExtResource("1_bjbjn")
 texture_region_size = Vector2i(64, 64)
 4:0/0 = 0
 4:0/0/terrain_set = 0

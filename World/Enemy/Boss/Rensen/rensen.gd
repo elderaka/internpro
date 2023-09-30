@@ -11,6 +11,7 @@ signal healt_change(value, max_health)
 @onready var circle_shot_timer = $CircleShotTimer
 @onready var animation_tree = $AnimationTree
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var hit_sound = $HitSound
 
 @export var health = 100
 @export var max_health = health
@@ -85,7 +86,6 @@ func circleShot():
 	emit_signal("enemy_shoot", newBullet, mark.global_position, spread_shot.rotation)
 
 func _on_circle_shot_timer_timeout():
-	print("set")
 	set_state_condition("circleAttack", true)
 
 func move_to_top():
@@ -95,16 +95,14 @@ func move_to_top():
 	curPoint = point
 
 func take_damage(damage, isCrit):
+	hit_sound.PlaySound()
 	health -= damage
 	emit_signal("healt_change", health, max_health)
 	
 	if ((not firstDeath) and health <=0):
-		print("Test")
 		set_state_condition("FirstDeath", true)
-		collision_shape_2d.disabled
 		firstDeath = true
 	elif firstDeath and health <= 0 and fight:
-		print("lastDeath")
 		set_state_condition("FinalDeath", true)
 
 func update_health():
@@ -112,8 +110,3 @@ func update_health():
 	if health > max_health:
 		health = max_health
 	emit_signal("healt_change", health, max_health)
-
-
-
-func _on_animation_tree_animation_started(anim_name):
-	print(anim_name)

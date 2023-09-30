@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal byte_change
+
 var item_id = 1
 @onready var item = $"Item Slot"
 @onready var price = $Label

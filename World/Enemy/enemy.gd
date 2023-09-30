@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var label = $Label
 @onready var critNotif = $Label2
 @onready var healthbar = $ProgressBar
+@onready var hit_sound = %HitSound
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_chase = false
 var player = null
@@ -46,6 +48,7 @@ func get_bytes(min,max):
 
 func take_damage(damage, isCrit):
 	#stats.health -= damage
+	hit_sound.PlaySound()
 	health -= damage
 	healthbar.value = health
 	if isCrit:

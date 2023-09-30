@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hybxjsfu8x1l"
+path="res://.godot/imported/playerhit.mp3-0c936cf00b5a5854feb64a4d442ebc9b.mp3str"
+
+[deps]
+
+source_file="res://music/sfx/HIT soundeffect/playerhit.mp3"
+dest_files=["res://.godot/imported/playerhit.mp3-0c936cf00b5a5854feb64a4d442ebc9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
