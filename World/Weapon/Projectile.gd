@@ -25,6 +25,8 @@ func _on_body_entered(body):
 	if (not body.is_in_group(self.get_groups()[0]) and (not body.is_in_group("level")) and (not check)):
 		var crit = critical()
 		body.take_damage(crit.damage,crit.isCrit)
+		if body.is_in_group("player"):
+			body.knockback(self)
 		if pierce > 0:
 			pierce -= 1
 		else:

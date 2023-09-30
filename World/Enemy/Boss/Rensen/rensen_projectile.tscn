@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0le0qnpwy8f2"]
+[gd_scene load_steps=3 format=3 uid="uid://b0le0qnpwy8f2"]
 
 [ext_resource type="PackedScene" uid="uid://c80ukt624641l" path="res://World/Weapon/projectile.tscn" id="1_bkhlk"]
+[ext_resource type="Resource" uid="uid://tfv1skc2jfmq" path="res://World/Enemy/Boss/Rensen/RensenProjectile.tres" id="2_u5u27"]
 
 [node name="RensenProjectile" groups=["enemy"] instance=ExtResource("1_bkhlk")]
 collision_mask = 3
+weapon_stats = ExtResource("2_u5u27")
 speed = 150
-damage = 2
+damage = 10
 pierce = 0
 
 [node name="AnimatedSprite2D" parent="." index="2"]

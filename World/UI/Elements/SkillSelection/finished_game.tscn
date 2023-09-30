@@ -23,6 +23,7 @@ layout_mode = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
 custom_minimum_size = Vector2(110, 60)
 layout_mode = 2
+mouse_filter = 1
 texture = ExtResource("1_0g4y2")
 patch_margin_left = 3
 patch_margin_top = 3

@@ -27,6 +27,7 @@ var aiming = false
 var weapon_slot = PlayerInventory.weapon
 var weapon_pos = 0
 var weapon_sfx = 0
+var direction
 
 func _ready():
 	weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
@@ -34,7 +35,7 @@ func _ready():
 func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
-	var direction = Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	handle_acceleration(direction, delta)
 	apply_friction(direction, delta)
 	apply_air_resistance(direction, delta)
@@ -84,6 +85,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("add_item"):
 		print("Full")
 	if stats.health <= 0:
+		print("dead")
 		emit_signal("player_dies")
 		queue_free()
 
@@ -160,8 +162,6 @@ func update_weapon():
 			weapon_used = load("res://World/Weapon/laser/laser_stats.tres")
 			weapon_sfx = 1
 			
-	
-	
 		
 func spawnBullet():
 	var b = Bullet.instantiate()
@@ -194,6 +194,7 @@ func shoot():
 func take_damage(damage, isCrit):
 	hit_sound.PlaySound()
 	stats.health -= damage
+	print(ResourceLoader.load("res://World/Player/DefaultPlayerStats.tres").duplicate().bytes)
 	emit_signal("health_change", stats.health, stats.maxhealth)
 	
 	
@@ -213,3 +214,31 @@ func add_random_item():
 			PlayerInventory.add_item("Crit Chance UP")
 		3:
 			PlayerInventory.add_item("Processor Boost")
+
+func knockback(body):
+	var knockDir = self.global_position.direction_to(body.global_position)
+	velocity.x = 300 * (knockDir.x * -1)
+	velocity.y = 200 * (knockDir.x * -1)
+
+func _reset():
+	stats.health = 100
+	stats.maxhealth = 100
+	stats.ram = 100
+	stats.maxram = 100
+	stats.damage = 2000
+	stats.fireRate = 1.0
+	stats.critChance = 0.12
+	stats.critDamage = 0.2
+	stats.pierce = 0
+	stats.knockback = 1.0
+	stats.lifesteal = 0.0
+	stats.weapon = "dot"
+	stats.bonusdata = 1.0
+	stats.bytes = 100
+	stats.weapon_slot = ["dot","lance"]
+	stats.getKnockback = false
+	stats.viewBar = false
+	stats.isBerserker = false
+	stats.lastStand = false
+	stats.replenishHealth = false
+	stats.replenishRAM = false

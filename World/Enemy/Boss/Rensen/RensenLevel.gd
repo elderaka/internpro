@@ -15,6 +15,5 @@ func levelFinished():
 	sound_queue_victory.PlaySound()
 	finished_game.visible = true
 
-
 func _on_finished_game_game_finished():
 	emit_signal("game_finished")

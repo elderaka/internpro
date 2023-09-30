@@ -110,3 +110,8 @@ func update_health():
 	if health > max_health:
 		health = max_health
 	emit_signal("healt_change", health, max_health)
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(renStats.damage/2, false)
+		body.knockback(self)

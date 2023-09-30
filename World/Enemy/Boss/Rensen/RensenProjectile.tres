@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapon_Statistic" load_steps=2 format=3 uid="uid://tfv1skc2jfmq"]
+
+[ext_resource type="Script" path="res://World/Weapon/WeaponStats.gd" id="1_cd8wf"]
+
+[resource]
+script = ExtResource("1_cd8wf")
+damage_multiplier = 1.2
+name = "lance"
+sprite = "lance"

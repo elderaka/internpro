@@ -9,6 +9,8 @@ extends Node2D
 
 @export var fightRooms : Array[Random_Item]
 
+@export var reset = true
+
 func finished_a_level():
 	SceneTransition.fade_to_black()
 	levels.hide()
@@ -25,6 +27,9 @@ func open_room(room, roomType):
 		var picked = load(levelPicker.pick_random_item(fightRooms))
 		level = picked.instantiate()
 		add_child(level)
+		if reset:
+			get_tree().get_nodes_in_group("player")[0]._reset()
+			reset = false
 	elif roomType == "Boss":
 		level = room.instantiate()
 		add_child(level)
@@ -53,6 +58,7 @@ func _on_pause_exit_to_main():
 	if get_tree().paused:
 		pause()
 	SceneTransition.fade_from_black()
+	reset = true
 	get_tree().reload_current_scene()
 
 func pause():
