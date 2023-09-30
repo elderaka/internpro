@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnkff011gft5r"]
+[gd_scene load_steps=13 format=3 uid="uid://bnkff011gft5r"]
 
 [ext_resource type="Script" path="res://World/UI/Elements/Shop/shop.gd" id="1_8x8yg"]
 [ext_resource type="PackedScene" uid="uid://dsx8cv42obi4f" path="res://World/UI/Elements/Counter/Bytes_Counter.tscn" id="1_t0gwl"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cxbpkro6b21fu" path="res://World/UI/TempUIAsset/1bit 16px icons part-2 outlines.png" id="7_ekc3t"]
 [ext_resource type="Texture2D" uid="uid://c6xr7twvwmhn2" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Textfield_01.png" id="8_na46i"]
 [ext_resource type="Script" path="res://World/UI/Elements/Shop/ammo_shop.gd" id="8_ts5sq"]
+[ext_resource type="AudioStream" uid="uid://dacuoj3rtmth5" path="res://music/BGM/auntumn leaves guitar BACKROUND.mp3" id="12_ajynf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2r4e"]
 atlas = ExtResource("7_ekc3t")
@@ -30,6 +31,7 @@ script = ExtResource("1_8x8yg")
 layout_mode = 2
 
 [node name="Bytes" parent="VBoxContainer" instance=ExtResource("1_t0gwl")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 
@@ -182,6 +184,10 @@ scroll_following = true
 layout_mode = 2
 text = "Leave
 "
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ajynf")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Heal Shop" to="." method="_on_heal_shop_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop" to="." method="_on_ammo_shop_pressed"]

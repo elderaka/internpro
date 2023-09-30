@@ -10,8 +10,8 @@ signal level_finished
 @onready var heal = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Heal Shop"
 @onready var ammo = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop"
 
+
 func _ready():
-	
 	initialize_item()
 	merchant_text()
 

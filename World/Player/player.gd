@@ -19,10 +19,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var marker_2d = $Marker2D
 @onready var firecd = $firerate
 @onready var sound_queue = %SoundQueue
+@onready var walk_sfx = $WalkSFX
+@onready var hit_sound = %HitSound
+@onready var weapon_sound = %WeaponSound
 
 var aiming = false
 var weapon_slot = PlayerInventory.weapon
 var weapon_pos = 0
+var weapon_sfx = 0
+
 func _ready():
 	weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
 
@@ -38,6 +43,13 @@ func _physics_process(delta):
 	update_bytes()
 	update_weapon()
 	var was_on_floor = is_on_floor()
+	
+	if velocity.x != 0 and is_on_floor():
+		if !walk_sfx.playing:
+			walk_sfx.play()
+	elif walk_sfx.playing:
+		walk_sfx.stop()
+	
 	move_and_slide()
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
 	if just_left_ledge:
@@ -131,16 +143,22 @@ func update_weapon():
 	match PlayerInventory.weapon[weapon_pos]:
 		"dot":
 			weapon_used = load("res://World/Weapon/dot/dot_stats.tres")
+			weapon_sfx = 0
 		"lance":
 			weapon_used = load("res://World/Weapon/lance/lance_stats.tres")
+			weapon_sfx = 2
 		"bounce":
 			weapon_used = load("res://World/Weapon/bounce/bounce_stats.tres")
+			weapon_sfx = 0
 		"spread":
 			weapon_used = load("res://World/Weapon/spread/spread_stats.tres")
+			weapon_sfx = 3
 		"datathrower":
 			weapon_used = load("res://World/Weapon/datathrower/dt_stats.tres")
+			weapon_sfx = 1
 		"laser":
 			weapon_used = load("res://World/Weapon/laser/laser_stats.tres")
+			weapon_sfx = 1
 			
 	
 	
@@ -160,6 +178,7 @@ func aim():
 	b.transform = marker_2d.transform
 
 func shoot():
+	weapon_sound.PlayWeaponSound(weapon_sfx)
 	var b = $PlayerProjectile
 	remove_child(b)
 	owner.add_child(b)
@@ -173,6 +192,7 @@ func shoot():
 	b.global_position = muzzle.global_position
 
 func take_damage(damage, isCrit):
+	hit_sound.PlaySound()
 	stats.health -= damage
 	emit_signal("health_change", stats.health, stats.maxhealth)
 	

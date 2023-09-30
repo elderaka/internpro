@@ -47,3 +47,6 @@ func critical():
 	#Return 2 values sekaligus, yaitu damage dan apakah damage tersebut critical atau tidak
 	
 	return {"damage": newDamage, "isCrit": isCrit}
+
+func changeWeapon():
+	pass

@@ -16,3 +16,7 @@ func PlayRandomSound(ding : bool):
 		index = 3
 	_lastIndex = index
 	_sounds[index].PlaySound()
+
+func PlayIndexSound(index : int):
+	_lastIndex = index
+	_sounds[index].PlaySound()

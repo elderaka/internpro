@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd8twnln7dusw"
+path="res://.godot/imported/Spread.mp3-aae120a8f3e9b647bac10ff5101d84d0.mp3str"
+
+[deps]
+
+source_file="res://music/sfx/WEAPONS EFFECT/Spread.mp3"
+dest_files=["res://.godot/imported/Spread.mp3-aae120a8f3e9b647bac10ff5101d84d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

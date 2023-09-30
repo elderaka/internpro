@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://biy4ep3cqkxrk"
+path="res://.godot/imported/bosshit.mp3-a1e2585463241a6c088e44b4a3982d3d.mp3str"
+
+[deps]
+
+source_file="res://music/sfx/HIT soundeffect/bosshit.mp3"
+dest_files=["res://.godot/imported/bosshit.mp3-a1e2585463241a6c088e44b4a3982d3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

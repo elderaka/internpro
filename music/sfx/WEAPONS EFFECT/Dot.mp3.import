@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b26e7qaghvd6l"
+path="res://.godot/imported/Dot.mp3-9d4d4626ef4c19f8a156b099bb65d625.mp3str"
+
+[deps]
+
+source_file="res://music/sfx/WEAPONS EFFECT/Dot.mp3"
+dest_files=["res://.godot/imported/Dot.mp3-9d4d4626ef4c19f8a156b099bb65d625.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
