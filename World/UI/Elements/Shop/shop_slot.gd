@@ -2,6 +2,7 @@ extends VBoxContainer
 
 signal byte_change
 
+signal not_enough
 var item_id = 1
 @onready var item = $"Item Slot"
 @onready var price = $Label
@@ -27,11 +28,13 @@ func initialize_item(id):
 
 func _on_item_slot_pressed():
 	if price.text != "SOLD":
-		
-		stats.bytes -= prices
-		emit_signal("byte_change", stats.bytes)
-		price.text = "SOLD"
-		PlayerInventory.add_item(JsonData.item_data[str(item_id)]["Name"])
-		item.initialize_item(0)
+		if prices < stats.bytes:
+			stats.bytes -= prices
+			emit_signal("byte_change", stats.bytes)
+			price.text = "SOLD"
+			PlayerInventory.add_item(JsonData.item_data[str(item_id)]["Name"])
+			item.initialize_item(0)
+		else:
+			not_enough.emit()
 	
 	pass # Replace with function body.

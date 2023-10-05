@@ -189,6 +189,8 @@ text = "Leave
 stream = ExtResource("12_ajynf")
 autoplay = true
 
+[connection signal="not_enough" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer/Shop Slot" to="." method="_on_shop_slot_not_enough"]
+[connection signal="not_enough" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Special Vbox/Special Shop Slot" to="." method="_on_special_shop_slot_not_enough"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Heal Shop" to="." method="_on_heal_shop_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop" to="." method="_on_ammo_shop_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/Leave" to="." method="_on_leave_pressed"]

@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dblg4wdiy1box"]
 
-[ext_resource type="Texture2D" uid="uid://cma3piwulcnw" path="res://sprite/bullet.png" id="1_8an6n"]
+[ext_resource type="Texture2D" uid="uid://c75btpdk40qo3" path="res://sprite/bullet_tile_set.png" id="1_xlntw"]
 
 [resource]
-atlas = ExtResource("1_8an6n")
-region = Rect2(3, 3, 10, 10)
+atlas = ExtResource("1_xlntw")
+region = Rect2(3.25948, 10.0027, 19.4865, 13.4299)

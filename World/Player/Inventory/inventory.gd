@@ -23,8 +23,7 @@ func initialize_weapon():
 	var slots = weapon_slots.get_children()
 	for i in range(slots.size()):
 		if PlayerInventory.weapon[i] != null:
-			print(PlayerInventory.weapon[i])
-			slots[i].initialize_item(PlayerInventory.weapon[i][0])
+			slots[i].initialize_item(PlayerInventory.weapon[i])
 
 func initialize_lore():
 	var slots = lore_slots.get_children()

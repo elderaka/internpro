@@ -5,7 +5,7 @@ var inventory = {
 }
 
 var max_weapon = 2
-var weapon = ["datathrower", "lance"]
+var weapon = ["dot",""]
 
 var max_lore = 3
 var lore = {

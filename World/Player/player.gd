@@ -44,7 +44,8 @@ func _physics_process(delta):
 	update_bytes()
 	update_weapon()
 	var was_on_floor = is_on_floor()
-	
+	if stats.ram <= 0:
+		stats.ram = 0
 	if velocity.x != 0 and is_on_floor():
 		if !walk_sfx.playing:
 			walk_sfx.play()
@@ -59,13 +60,13 @@ func _physics_process(delta):
 	marker_2d.look_at(get_global_mouse_position())
 	
 	if Input.is_action_pressed("Shoot"):
-		if PlayerInventory.weapon[weapon_pos] != "datathrower":
+		if PlayerInventory.weapon[weapon_pos] != "datathrower" and PlayerInventory.weapon[weapon_pos] != "laser":
 			if not aiming:
 				spawnBullet()
 				aiming = true
 			else:
 				aim()
-		elif PlayerInventory.weapon[weapon_pos] == "datathrower":
+		elif PlayerInventory.weapon[weapon_pos] == "datathrower" or PlayerInventory.weapon[weapon_pos] == "laser":
 			var cooldown = false
 			if cooldown == false:
 				spawnBullet()
@@ -80,8 +81,6 @@ func _physics_process(delta):
 			shoot()
 			aiming = false
 	
-	if Input.is_action_just_pressed("add_item") and PlayerInventory.inventory.size() < PlayerInventory.max_slot:
-		add_random_item()
 	elif Input.is_action_just_pressed("add_item"):
 		print("Full")
 	if stats.health <= 0:
@@ -166,27 +165,62 @@ func update_weapon():
 func spawnBullet():
 	var b = Bullet.instantiate()
 	add_child(b)
-	b.animation = weapon_used.sprite
+	if weapon_used.sprite == "datathrower":
+		var randsprite = randi_range(0,1)
+		b.sprite.scale.x = 0.35
+		b.sprite.scale.y = 0.35
+		if randsprite == 0:
+			b.animation = "thrower_0"
+		else:
+			b.animation = "thrower_1"
+	else:
+		b.animation = weapon_used.sprite
 	b.weapon_stats = weapon_used
 	b.transform = marker_2d.transform
 	b.speed = 0
+	print(b)
 
 func aim():
 	var b = $PlayerProjectile
 	b.weapon_stats = weapon_used
-	b.animation = weapon_used.sprite
+	
+	if weapon_used.sprite == "datathrower":
+		b.sprite.scale.x = 0.35
+		b.sprite.scale.y = 0.35
+		var randsprite = randi_range(0,1)
+		if randsprite == 0:
+			b.animation = "thrower_0"
+		else:
+			b.animation = "thrower_1"
+	else:
+		b.animation = weapon_used.sprite
 	b.transform = marker_2d.transform
 
 func shoot():
+	if stats.weapon == "datathrower" or stats.weapon == "laser":
+		stats.ram -= 1
+	else:
+		stats.ram -= 10
 	weapon_sound.PlayWeaponSound(weapon_sfx)
 	var b = $PlayerProjectile
 	remove_child(b)
 	owner.add_child(b)
 	b.speed = 300
 	b.damage = stats.damage
+	if stats.ram <= 0:
+		b.damage -= stats.damage/2
 	b.critChance = stats.critChance
 	b.critDamage = stats.critDamage
-	b.animation = weapon_used.sprite
+	if weapon_used.sprite == "datathrower":
+		var randsprite = randi_range(0,1)
+		b.sprite.scale.x = 0.35
+		b.sprite.scale.y = 0.35
+		if randsprite == 0:
+			b.animation = "thrower_0"
+		else:
+			b.animation = "thrower_1"
+	else:
+		b.animation = weapon_used.sprite
 	b.weapon_stats = weapon_used
 	b.transform = marker_2d.transform
 	b.global_position = muzzle.global_position
@@ -225,7 +259,7 @@ func _reset():
 	stats.maxhealth = 100
 	stats.ram = 100
 	stats.maxram = 100
-	stats.damage = 2000
+	stats.damage = 100
 	stats.fireRate = 1.0
 	stats.critChance = 0.12
 	stats.critDamage = 0.2

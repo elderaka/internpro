@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcbo2t0hstdgw"]
+[gd_scene load_steps=21 format=3 uid="uid://dcbo2t0hstdgw"]
 
 [ext_resource type="Script" path="res://World/Player/player.gd" id="1_aa5cq"]
 [ext_resource type="Texture2D" uid="uid://88t1elds7jx0" path="res://icon.svg" id="1_jalrq"]
-[ext_resource type="Resource" uid="uid://cgl7mel6qj5d6" path="res://World/Player/DefaultPlayerMovement.tres" id="2_davsx"]
+[ext_resource type="Resource" uid="uid://cf2lw81f3ol8u" path="res://World/Player/DefaultPlayerMovement.tres" id="2_davsx"]
 [ext_resource type="Resource" uid="uid://dk7c2xl2gvw73" path="res://World/Player/DefaultPlayerStats.tres" id="3_7ukfu"]
-[ext_resource type="PackedScene" uid="uid://bq3nsvtn3mc5w" path="res://World/Weapon/player_projectile.tscn" id="4_kv7yu"]
+[ext_resource type="PackedScene" uid="uid://cmjmhsyh4sshb" path="res://World/Weapon/player_projectile.tscn" id="4_m8j1e"]
 [ext_resource type="Script" path="res://World/Player/Inventory/Inventory_UI.gd" id="6_673pg"]
 [ext_resource type="PackedScene" uid="uid://c4lgtxaxdh8dr" path="res://World/Player/Inventory/inventory.tscn" id="7_4cn2a"]
 [ext_resource type="PackedScene" uid="uid://buvvvqgxapmua" path="res://music/AudioPlayer/sound_queue.tscn" id="8_7yvin"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://c7niv7wjp1q47" path="res://music/sfx/WEAPONS EFFECT/Laser.mp3" id="15_00wup"]
 [ext_resource type="AudioStream" uid="uid://p8ibglvuoj54" path="res://music/sfx/WEAPONS EFFECT/Heavy.mp3" id="16_scr23"]
 [ext_resource type="AudioStream" uid="uid://dd8twnln7dusw" path="res://music/sfx/WEAPONS EFFECT/Spread.mp3" id="17_3oa6d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md146"]
+radius = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjlpy"]
 size = Vector2(18, 17)
@@ -47,10 +50,15 @@ floor_snap_length = 3.0
 script = ExtResource("1_aa5cq")
 movement_data = ExtResource("2_davsx")
 stats = ExtResource("3_7ukfu")
-Bullet = ExtResource("4_kv7yu")
+Bullet = ExtResource("4_m8j1e")
 
 [node name="dtDespawn" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dtDespawn"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_md146")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.19209e-07, 0)

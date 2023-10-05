@@ -56,11 +56,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Skill6" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hwv5t")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
 [node name="Button" parent="VBoxContainer" instance=ExtResource("2_dnos3")]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2

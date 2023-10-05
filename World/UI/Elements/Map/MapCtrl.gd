@@ -23,8 +23,11 @@ func _ready():
 	
 	for k in map_data.nodes.keys():
 		var point = map_data.nodes[k]
-		var room = load(random_room(point))
+		var random = random_room(point)
+		var room = load(random)
+		print(random)
 		var event = room.instantiate()
+		print("instantiated")
 		event.position = point * mapScale + (get_viewport_rect().size/8)
 		add_child(event)
 		event.set_color(k)
