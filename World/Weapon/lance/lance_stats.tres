@@ -6,4 +6,4 @@
 script = ExtResource("1_wgbk4")
 damage_multiplier = 1.2
 name = "lance"
-sprite = ""
+sprite = "lance"

@@ -6,4 +6,4 @@
 script = ExtResource("1_t681p")
 damage_multiplier = 0.4
 name = "spread"
-sprite = "dot"
+sprite = "spread"

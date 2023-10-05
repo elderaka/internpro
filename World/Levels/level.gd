@@ -6,7 +6,7 @@ signal game_finished
 @onready var reward_selection = %"Reward Selection"
 @onready var reward = %Reward
 @onready var bullet_manager = %BulletManager
-@onready var dead = $Dead
+@onready var dead = $"Dead/Finished Game"
 @onready var sound_queue_victory = $Sound_QueueVictory
 @onready var sound_queue_defeat = $Sound_QueueDefeat
 

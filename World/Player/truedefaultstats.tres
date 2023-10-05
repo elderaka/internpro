@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Player_Statistic" load_steps=2 format=3 uid="uid://ddfqlbwavkvk3"]
+
+[ext_resource type="Script" path="res://World/Player/PlayerStats.gd" id="1_sjmkq"]
+
+[resource]
+script = ExtResource("1_sjmkq")
+health = 100
+maxhealth = 100
+ram = 100
+maxram = 100
+damage = 2000
+fireRate = 1.0
+critChance = 0.2
+critDamage = 1.5
+pierce = 0
+knockback = 1.0
+lifesteal = 0.0
+weapon = "dot"
+bonusdata = 1.0
+bytes = 100
+weapon_slot = ["dot", "lance"]
+getKnockback = false
+viewBar = false
+isBerserker = false
+lastStand = false
+replenishHealth = false
+replenishRAM = false

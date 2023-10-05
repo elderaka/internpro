@@ -6,4 +6,4 @@
 script = ExtResource("1_tx7gw")
 damage_multiplier = 0.05
 name = "laser"
-sprite = ""
+sprite = "laser"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccrloldahq1qi"]
+[gd_scene load_steps=4 format=3 uid="uid://c227aqkih6rd6"]
 
 [ext_resource type="Texture2D" uid="uid://be47vioh7vimm" path="res://World/UI/TempUIAsset/Sprites/UI_Flat_Frame_02_Standard.png" id="1_0g4y2"]
 [ext_resource type="Script" path="res://World/UI/Elements/SkillSelection/finished_game.gd" id="1_p5n6t"]

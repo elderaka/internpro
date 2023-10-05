@@ -1,5 +1,5 @@
 extends Area2D
-
+@export var stat = load("res://World/Player/DefaultPlayerStats.tres")
 @export var weapon_stats : Weapon_Statistic
 @export var speed = 300
 @export var damage = 50
@@ -11,11 +11,17 @@ extends Area2D
 @export var isCrit = false
 @export var animation = ""
 @onready var sprite = $AnimatedSprite2D
+@export var lifespan = 0.5
+var age = 1
 
 func _ready():
+	$Timer.wait_time += (stat.fireRate - 1) * 0.5
 	pass
 	
 func _physics_process(delta):
+	print($Timer.wait_time)
+	if $Timer.is_stopped() and (animation == "thrower_0" or animation == "thrower_1"):
+		queue_free()
 	sprite.play(animation)
 	position += transform.x * speed * delta
 
@@ -32,7 +38,11 @@ func _on_body_entered(body):
 		else:
 			queue_free()
 	elif body.is_in_group("level"):
-		queue_free()
+		if weapon_stats.name == "bounce" and pierce > 0:
+			speed = -speed
+			pierce -= 1
+		else:
+			queue_free()
 	else:
 		queue_free()
 

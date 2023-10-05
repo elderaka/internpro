@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bj40gdojc66mj"]
+
+[ext_resource type="Texture2D" uid="uid://c75btpdk40qo3" path="res://sprite/bullet_tile_set.png" id="1_h1vml"]
+
+[resource]
+atlas = ExtResource("1_h1vml")
+region = Rect2(34.175, 10.7196, 19.8696, 11.4908)

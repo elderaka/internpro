@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0irvrjacf0uw"]
+[gd_scene load_steps=5 format=3 uid="uid://bordobak2k3oj"]
 
 [ext_resource type="PackedScene" uid="uid://difcbo14clhhl" path="res://World/UI/Elements/Map/room_map.tscn" id="1_v6qiv"]
 [ext_resource type="PackedScene" uid="uid://bnkff011gft5r" path="res://World/UI/Elements/Shop/shop.tscn" id="2_wsaf5"]

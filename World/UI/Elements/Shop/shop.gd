@@ -1,7 +1,6 @@
 extends MarginContainer
 
 signal level_finished
-
 @onready var bytes = %Bytes
 @onready var stats = load("res://World/Player/DefaultPlayerStats.tres")
 @onready var slot1 = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Item Vbox/HBoxContainer"
@@ -9,8 +8,7 @@ signal level_finished
 @onready var slot3 = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Item Hbox/Special Vbox"
 @onready var heal = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Heal Shop"
 @onready var ammo = $"VBoxContainer/CenterContainer/Section Seperator/ItemBG/MarginContainer/Base Vbox/Comsumeable Hbox/Ammo Shop"
-
-
+var lowbal = false
 func _ready():
 	initialize_item()
 	merchant_text()
@@ -91,7 +89,22 @@ func merchant_text():
 		"Saya lihat Anda masih memakai senjata yang sama. Mungkin sudah waktunya untuk ditingkatkan.",
 		"Apa yang kamu lihat? Aku tidak punya sesuatu yang istimewa untukmu hanya karena kamu Kaisei. Bayar dan pergi."
 	]
+	var not_enough = [
+		"Oh, sepertinya kamu tidak memiliki cukup item. Jangan coba-coba lagi ya!",	
+		"Sayangnya, kantong kamu belum cukup dalam. Perlu lebih banyak lagi!",
+		"Kamu mau beli ini? Hmm, kamu butuh lebih banyak item dulu, sayang.",
+		"Stok barang ini hanya untuk mereka yang punya bytes berlimpah. Coba lagi nanti, mungkin.",
+		"Hmm, sepertinya kamu harus kembali berburu bytes sebelum bisa beli ini.",
+		"Sedikit kurang untuk kebahagiaan ini. Kumpulkan lebih banyak bytes, deh.",
+		"Hanya orang berkantong tebal yang bisa beli ini. Jadi, belom bisa!",
+		"Kamu belum mencapai standar minimum untuk bisa beli ini. Terus berusaha!"
+	]
 	var text = texts[randi_range(0,9)]
+	if lowbal:
+		text = not_enough[randi_range(0,7)]
+	else:
+		text = texts[randi_range(0,9)]
+	
 	$"VBoxContainer/CenterContainer/Section Seperator/Merchant Vbox/MerchantBG/MarginContainer/VBoxContainer/TextureRect2/RichTextLabel".text = text
 func _on_leave_pressed():
 	leave()
@@ -100,10 +113,28 @@ func _on_leave_pressed():
 
 func _on_heal_shop_pressed():
 	stats.health = stats.maxhealth
-	stats.bytes -= heal.prices
-	leave()
+	if stats.bytes > heal.prices:
+		stats.bytes -= heal.prices
+	else:
+		lowbal = true
+		merchant_text()
 
 func _on_ammo_shop_pressed():
 	stats.ram = stats.maxram
-	stats.bytes -= heal.price
-	leave()
+	if stats.bytes > ammo.prices:
+		stats.bytes -= ammo.prices
+	else:
+		lowbal = true
+		merchant_text()
+
+
+func _on_shop_slot_not_enough():
+	lowbal = true
+	merchant_text()
+	
+	
+
+
+func _on_special_shop_slot_not_enough():
+	lowbal = true
+	merchant_text()

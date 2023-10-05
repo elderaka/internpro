@@ -7,5 +7,5 @@ script = ExtResource("1_q8rup")
 type = "bit"
 health = 1000
 damage = 50
-minbytes = 50
-maxbytes = 100
+minbytes = 5
+maxbytes = 15

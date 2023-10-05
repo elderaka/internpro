@@ -6,4 +6,4 @@
 script = ExtResource("1_5ii6d")
 damage_multiplier = 0.9
 name = "bounce"
-sprite = ""
+sprite = "bounce"
