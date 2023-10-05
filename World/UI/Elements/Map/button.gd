@@ -18,7 +18,7 @@ var point = Vector2.ZERO
 func add_child_event(child):
 	if !children.has(child):
 		children.append(child)
-		child.button.disabled = true
+		child.button.set_disabled(true)
 		queue_redraw()
 
 func set_color(idx):
@@ -42,9 +42,9 @@ func _on_button_pressed():
 	ButtonSoundPool.PlayRandomSound(false)
 	print("room picked")
 	for child in children:
-		child.button.disabled = false
+		child.button.set_disabled(false)
 		child.finished = true
-	button.disabled = true
+	button.set_disabled(true)
 	finished = true
 	emit_signal("room_picked", self)
 	emit_signal("send_room", room, roomType)

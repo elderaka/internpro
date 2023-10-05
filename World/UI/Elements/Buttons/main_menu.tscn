@@ -28,10 +28,13 @@ layout_mode = 2
 
 [node name="Tittle" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Tittle"
+text = "The Hologram of Keise"
 
 [node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 21)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_neighbor_bottom = NodePath("../../../HBoxContainer/Settings")
 focus_next = NodePath("../../../HBoxContainer/Settings")
 text = "Play"

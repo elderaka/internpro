@@ -15,6 +15,9 @@ var events = {}
 @export var rooms : Array[Random_Item]
 
 func _ready():
+#	pass
+
+#func make_map():
 	var generator = preload("res://World/UI/Elements/Map/mapGenerator.gd").new()
 	var map_data = generator.generate(plane_x, plane_y, node_count, path_count)
 	
@@ -43,14 +46,14 @@ func _ready():
 		for grandchild in child.children:
 			if grandchild.point.x <= child.point.x:
 				emit_signal("refreshMap")
-				print("refreshed")
+				print("refreshed1")
 		if child.point.x == 5:
 			is_chest_room = true
 			midRoomCount += 1
 	
 	if not is_chest_room or midRoomCount <= 1:
 		emit_signal("refreshMap")
-		print("refreshed")
+		print("refreshed2")
 	
 	get_child(0)._on_button_pressed()
 
